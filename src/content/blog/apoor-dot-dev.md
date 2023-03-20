@@ -81,14 +81,35 @@ well this ease-of-use scales.
 
 ## Middleware and Logging
 
-The most-used logging library used with Tokio and Axum is 
-[_Tracing_](https://github.com/tokio-rs/tracing), which is also maintained by the Tokio
-team. Having used it as the logging library in this application as well as a few other
-toy projects, I haven't quite gotten the hang of it yet. The default
+The most-used logging library used with Tokio and Axum is [_Tracing_](https://github.com/tokio-rs/tracing), 
+which is also maintained by the Tokio team. Having used it as the logging library in this 
+application as well as a few other toy projects, I would say that I haven't quite gotten 
+the hang of it yet. Since it handles more than just logging, it has a different interface 
+than other logging libraries like [Winston](https://github.com/winstonjs/winston) in NodeJS 
+or [Zap](https://github.com/uber-go/zap) in Go.
+
+Likewise, the Axum middleware package, [Tower](https://github.com/tower-rs/tower) (also
+under the Tokio umbrella), feels different than other middleware tools. It aims to provide
+reusable middleware across tools like Axum, Hyper, and Tonic.
 
 
 ## Data Storage Decision
 
+My original intention was to store the URL entries -- the mapping from short keys to their
+respective redirect URLs (eg "blog", as in "apoor.dev/blog" would link to "austinpoor.com/blog")
+-- in a cache like Redis. In fact, Fly.io has an [integration with Redis via Upstash](https://fly.io/docs/reference/redis/).
+As I was building the app, though, I found that it would be simpler and faster to store the
+data as a `HashMap` in the application itself.
+
+Since I don't often make changes and, when I do, a GitHub action is able to re-deploy the
+site in less than 5 minutes, there's no need to complicate things with a database or an 
+external cache.
+
+In a future iteration, I do plan to add a database or a chache to monitor request volume
+but in the meantime, a `HashMap` gets the job done quickly and easily.
+
+
+## Deploying to Fly.io
 
 
 ## Load Testing and Performance
