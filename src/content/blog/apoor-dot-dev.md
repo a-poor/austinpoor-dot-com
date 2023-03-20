@@ -105,8 +105,8 @@ Since I don't often make changes and, when I do, a GitHub action is able to re-d
 site in less than 5 minutes, there's no need to complicate things with a database or an 
 external cache.
 
-In a future iteration, I do plan to add a database or a chache to monitor request volume
-but in the meantime, a `HashMap` gets the job done quickly and easily.
+In a future iteration, I do plan to add a cache to monitor request volume but in the meantime, 
+a `HashMap` gets the job done quickly and easily.
 
 
 ## Deploying to Fly.io
