@@ -10,7 +10,11 @@ import githubIcon from '@/public/github.svg';
 import linkedinIcon from '@/public/linkedin.svg';
 
 
-export function Nav() {
+export interface INavProps {
+  activeTab?: "blog" | "projects" | "about";
+}
+
+export function Nav({activeTab}: INavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>
@@ -28,17 +32,17 @@ export function Nav() {
             Austin Poor
           </Link>
           <ul className="hidden sm:flex flex-row space-x-1 sm:space-x-2 list-none font-light">
-            <li className="">
+            <li className={`border-b-2 ${activeTab === "blog" ? "border-white" : "border-transparent"}`}>
               <Link href="/blog">
                 Blog
               </Link>
             </li>
-            <li className="">
+            <li className={`border-b-2 ${activeTab === "projects" ? "border-white" : "border-transparent"}`}>
               <Link href="/projects">
                 Projects
               </Link>
             </li>
-            <li className="">
+            <li className={`border-b-2 ${activeTab === "about" ? "border-white" : "border-transparent"}`}>
               <Link href="/about">
                 About
               </Link>
@@ -67,6 +71,7 @@ export function Nav() {
           </div>
         </nav>
       </div>
+      
       {isMenuOpen && (
         <div className="absolute sm:hidden top-0 left-0 right-0 bottom-0 bg-neutral-900 z-10 px-3 py-2">
           <div className="flex flex-col space-y-5 h-full pb-20">
@@ -82,18 +87,23 @@ export function Nav() {
             </div>
 
             <ul className="flex flex-col text-4xl space-y-3 ml-2 mt-2">
-              <li className="">
-                <Link href="/blog">
+              <li>
+                <Link href="/" className={`border-b-2 ${activeTab === undefined ? "border-white" : "border-transparent"}`}>
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className={`border-b-2 ${activeTab === "blog" ? "border-white" : "border-transparent"}`}>
                   Blog
                 </Link>
               </li>
-              <li className="">
-                <Link href="/projects">
+              <li>
+                <Link href="/projects" className={`border-b-2 ${activeTab === "projects" ? "border-white" : "border-transparent"}`}>
                   Projects
                 </Link>
               </li>
-              <li className="">
-                <Link href="/about">
+              <li>
+                <Link href="/about" className={`border-b-2 ${activeTab === "about" ? "border-white" : "border-transparent"}`}>
                   About
                 </Link>
               </li>
