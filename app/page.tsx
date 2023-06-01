@@ -3,6 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Nav } from '@/lib/Nav';
 
+import profilePicture from '@/public/propic.png';
+
 
 export default function Home() {
   return (
@@ -24,11 +26,12 @@ export default function Home() {
           <div>
             <div>
               <Image 
-                src="/propic.png"
-                width={400}
-                height={400}
+                src={profilePicture}
+                width={300}
+                height={300}
                 alt="A photo of Austin Poor"
                 className="rounded-full overflow-hidden w-64 sm:w-fit"
+                placeholder='blur'
               />
             </div>
           </div>
