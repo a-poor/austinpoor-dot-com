@@ -1,9 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@astrojs/mdx':
     specifier: ^0.16.0
-    version: 0.16.0(astro@2.0.14)(rollup@3.15.0)
+    version: 0.16.0(astro@2.0.14)(rollup@3.28.1)
   '@astrojs/prefetch':
     specifier: ^0.1.2
     version: 0.1.2
@@ -22,9 +26,12 @@ dependencies:
   astro:
     specifier: ^2.0.14
     version: 2.0.14
+  motion:
+    specifier: ^10.16.2
+    version: 10.16.2
   tailwindcss:
-    specifier: ^3.0.24
-    version: 3.2.6(postcss@8.4.21)
+    specifier: ^3.2.6
+    version: 3.2.6(postcss@8.4.28)
 
 packages:
 
@@ -85,14 +92,14 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/mdx@0.16.0(astro@2.0.14)(rollup@3.15.0):
+  /@astrojs/mdx@0.16.0(astro@2.0.14)(rollup@3.28.1):
     resolution: {integrity: sha512-HNk0FhNNthI7+pLmheJyPVU36dXE5l+9UwmmnrMV6COHNZIO2t+pnWnsushEDYZjpkYITDwnXKnQAtD8Mqj4xw==}
     engines: {node: '>=16.12.0'}
     dependencies:
       '@astrojs/markdown-remark': 2.0.1(astro@2.0.14)
       '@astrojs/prism': 2.0.0
       '@mdx-js/mdx': 2.3.0
-      '@mdx-js/rollup': 2.3.0(rollup@3.15.0)
+      '@mdx-js/rollup': 2.3.0(rollup@3.28.1)
       acorn: 8.8.2
       es-module-lexer: 0.10.5
       estree-util-visit: 1.2.1
@@ -150,7 +157,7 @@ packages:
       autoprefixer: 10.4.13(postcss@8.4.21)
       postcss: 8.4.21
       postcss-load-config: 4.0.1(postcss@8.4.21)
-      tailwindcss: 3.2.6(postcss@8.4.21)
+      tailwindcss: 3.2.6(postcss@8.4.28)
     transitivePeerDependencies:
       - ts-node
     dev: false
@@ -729,18 +736,79 @@ packages:
       - supports-color
     dev: false
 
-  /@mdx-js/rollup@2.3.0(rollup@3.15.0):
+  /@mdx-js/rollup@2.3.0(rollup@3.28.1):
     resolution: {integrity: sha512-wLvRfJS/M4UmdqTd+WoaySEE7q4BIejYf1xAHXYvtT1du/1Tl/z2450Gg2+Hu7fh05KwRRiehiTP9Yc/Dtn0fA==}
     peerDependencies:
       rollup: '>=2'
     dependencies:
       '@mdx-js/mdx': 2.3.0
-      '@rollup/pluginutils': 5.0.2(rollup@3.15.0)
-      rollup: 3.15.0
+      '@rollup/pluginutils': 5.0.2(rollup@3.28.1)
+      rollup: 3.28.1
       source-map: 0.7.4
       vfile: 5.3.7
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@motionone/animation@10.15.1:
+    resolution: {integrity: sha512-mZcJxLjHor+bhcPuIFErMDNyrdb2vJur8lSfMCsuCB4UyV8ILZLvK+t+pg56erv8ud9xQGK/1OGPt10agPrCyQ==}
+    dependencies:
+      '@motionone/easing': 10.15.1
+      '@motionone/types': 10.15.1
+      '@motionone/utils': 10.15.1
+      tslib: 2.5.0
+    dev: false
+
+  /@motionone/dom@10.16.2:
+    resolution: {integrity: sha512-bnuHdNbge1FutZXv+k7xub9oPWcF0hsu8y1HTH/qg6av58YI0VufZ3ngfC7p2xhMJMnoh0LXFma2EGTgPeCkeg==}
+    dependencies:
+      '@motionone/animation': 10.15.1
+      '@motionone/generators': 10.15.1
+      '@motionone/types': 10.15.1
+      '@motionone/utils': 10.15.1
+      hey-listen: 1.0.8
+      tslib: 2.5.0
+    dev: false
+
+  /@motionone/easing@10.15.1:
+    resolution: {integrity: sha512-6hIHBSV+ZVehf9dcKZLT7p5PEKHGhDwky2k8RKkmOvUoYP3S+dXsKupyZpqx5apjd9f+php4vXk4LuS+ADsrWw==}
+    dependencies:
+      '@motionone/utils': 10.15.1
+      tslib: 2.5.0
+    dev: false
+
+  /@motionone/generators@10.15.1:
+    resolution: {integrity: sha512-67HLsvHJbw6cIbLA/o+gsm7h+6D4Sn7AUrB/GPxvujse1cGZ38F5H7DzoH7PhX+sjvtDnt2IhFYF2Zp1QTMKWQ==}
+    dependencies:
+      '@motionone/types': 10.15.1
+      '@motionone/utils': 10.15.1
+      tslib: 2.5.0
+    dev: false
+
+  /@motionone/svelte@10.16.2:
+    resolution: {integrity: sha512-38xsroKrfK+aHYhuQlE6eFcGy0EwrB43Q7RGjF73j/kRUTcLNu/LAaKiLLsN5lyqVzCgTBVt4TMT/ShWbTbc5Q==}
+    dependencies:
+      '@motionone/dom': 10.16.2
+      tslib: 2.5.0
+    dev: false
+
+  /@motionone/types@10.15.1:
+    resolution: {integrity: sha512-iIUd/EgUsRZGrvW0jqdst8st7zKTzS9EsKkP+6c6n4MPZoQHwiHuVtTQLD6Kp0bsBLhNzKIBlHXponn/SDT4hA==}
+    dev: false
+
+  /@motionone/utils@10.15.1:
+    resolution: {integrity: sha512-p0YncgU+iklvYr/Dq4NobTRdAPv9PveRDUXabPEeOjBLSO/1FNB2phNTZxOxpi1/GZwYpAoECEa0Wam+nsmhSw==}
+    dependencies:
+      '@motionone/types': 10.15.1
+      hey-listen: 1.0.8
+      tslib: 2.5.0
+    dev: false
+
+  /@motionone/vue@10.16.2:
+    resolution: {integrity: sha512-7/dEK/nWQXOkJ70bqb2KyNfSWbNvWqKKq1C8juj+0Mg/AorgD8O5wE3naddK0G+aXuNMqRuc4jlsYHHWHtIzVw==}
+    dependencies:
+      '@motionone/dom': 10.16.2
+      tslib: 2.5.0
     dev: false
 
   /@nodelib/fs.scandir@2.1.5:
@@ -791,7 +859,7 @@ packages:
       picomatch: 2.3.1
     dev: false
 
-  /@rollup/pluginutils@5.0.2(rollup@3.15.0):
+  /@rollup/pluginutils@5.0.2(rollup@3.28.1):
     resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -803,7 +871,7 @@ packages:
       '@types/estree': 1.0.0
       estree-walker: 2.0.2
       picomatch: 2.3.1
-      rollup: 3.15.0
+      rollup: 3.28.1
     dev: false
 
   /@types/acorn@4.0.6:
@@ -1155,7 +1223,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001451
+      caniuse-lite: 1.0.30001523
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -1227,7 +1295,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001451
+      caniuse-lite: 1.0.30001523
       electron-to-chromium: 1.4.295
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10(browserslist@4.21.5)
@@ -1257,8 +1325,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /caniuse-lite@1.0.30001451:
-    resolution: {integrity: sha512-XY7UbUpGRatZzoRft//5xOa69/1iGJRBlrieH6QYrkKLIFn3m7OVEJ81dSrKoy2BnKsdbX5cLrOispZNYo9v2w==}
+  /caniuse-lite@1.0.30001523:
+    resolution: {integrity: sha512-I5q5cisATTPZ1mc588Z//pj/Ox80ERYDfR71YnvY7raS/NOk8xXlZcB0sF7JdqaV//kOaa6aus7lRfpdnt1eBA==}
     dev: false
 
   /ccount@2.0.1:
@@ -1315,7 +1383,7 @@ packages:
       normalize-path: 3.0.0
       readdirp: 3.6.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: false
 
   /chownr@2.0.0:
@@ -1745,8 +1813,8 @@ packages:
     resolution: {integrity: sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw==}
     dev: false
 
-  /fsevents@2.3.2:
-    resolution: {integrity: sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==}
+  /fsevents@2.3.3:
+    resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
@@ -1964,6 +2032,10 @@ packages:
       hast-util-parse-selector: 3.1.1
       property-information: 6.2.0
       space-separated-tokens: 2.0.2
+    dev: false
+
+  /hey-listen@1.0.8:
+    resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
     dev: false
 
   /html-escaper@3.0.3:
@@ -2859,6 +2931,17 @@ packages:
     hasBin: true
     dev: false
 
+  /motion@10.16.2:
+    resolution: {integrity: sha512-p+PurYqfUdcJZvtnmAqu5fJgV2kR0uLFQuBKtLeFVTrYEVllI99tiOTSefVNYuip9ELTEkepIIDftNdze76NAQ==}
+    dependencies:
+      '@motionone/animation': 10.15.1
+      '@motionone/dom': 10.16.2
+      '@motionone/svelte': 10.16.2
+      '@motionone/types': 10.15.1
+      '@motionone/utils': 10.15.1
+      '@motionone/vue': 10.16.2
+    dev: false
+
   /mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -2870,6 +2953,12 @@ packages:
 
   /nanoid@3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
+    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
+    hasBin: true
+    dev: false
+
+  /nanoid@3.3.6:
+    resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: false
@@ -3109,29 +3198,29 @@ packages:
       find-up: 4.1.0
     dev: false
 
-  /postcss-import@14.1.0(postcss@8.4.21):
+  /postcss-import@14.1.0(postcss@8.4.28):
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       postcss: ^8.0.0
     dependencies:
-      postcss: 8.4.21
+      postcss: 8.4.28
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.1
     dev: false
 
-  /postcss-js@4.0.1(postcss@8.4.21):
+  /postcss-js@4.0.1(postcss@8.4.28):
     resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
       postcss: ^8.4.21
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.21
+      postcss: 8.4.28
     dev: false
 
-  /postcss-load-config@3.1.4(postcss@8.4.21):
+  /postcss-load-config@3.1.4(postcss@8.4.28):
     resolution: {integrity: sha512-6DiM4E7v4coTE4uzA8U//WhtPwyhiim3eyjEMFCnUpzbrkK9wJHgKDT2mR+HbtSrd/NubVaYTOpSpjUl8NQeRg==}
     engines: {node: '>= 10'}
     peerDependencies:
@@ -3144,7 +3233,7 @@ packages:
         optional: true
     dependencies:
       lilconfig: 2.0.6
-      postcss: 8.4.21
+      postcss: 8.4.28
       yaml: 1.10.2
     dev: false
 
@@ -3165,13 +3254,13 @@ packages:
       yaml: 2.2.1
     dev: false
 
-  /postcss-nested@6.0.0(postcss@8.4.21):
+  /postcss-nested@6.0.0(postcss@8.4.28):
     resolution: {integrity: sha512-0DkamqrPcmkBDsLn+vQDIrtkSbNkv5AD/M322ySo9kqFkCIYklym2xEmWkwo+Y3/qZo34tzEPNUw4y7yMCdv5w==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
-      postcss: 8.4.21
+      postcss: 8.4.28
       postcss-selector-parser: 6.0.11
     dev: false
 
@@ -3192,6 +3281,15 @@ packages:
     engines: {node: ^10 || ^12 || >=14}
     dependencies:
       nanoid: 3.3.4
+      picocolors: 1.0.0
+      source-map-js: 1.0.2
+    dev: false
+
+  /postcss@8.4.28:
+    resolution: {integrity: sha512-Z7V5j0cq8oEKyejIKfpD8b4eBy9cwW2JWPk0+fB1HOAMsfHbnAXLLS+PfVWlzMSLQaWttKDt607I0XHmpE67Vw==}
+    engines: {node: ^10 || ^12 || >=14}
+    dependencies:
+      nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
     dev: false
@@ -3442,7 +3540,15 @@ packages:
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
+    dev: false
+
+  /rollup@3.28.1:
+    resolution: {integrity: sha512-R9OMQmIHJm9znrU3m3cpE8uhN0fGdXiawME7aZIpQqvpS/85+Vt1Hq1/yVIcYfOmaQiHjvXkQAoJukvLpau6Yw==}
+    engines: {node: '>=14.18.0', npm: '>=8.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.3
     dev: false
 
   /run-parallel@1.2.0:
@@ -3690,7 +3796,7 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /tailwindcss@3.2.6(postcss@8.4.21):
+  /tailwindcss@3.2.6(postcss@8.4.28):
     resolution: {integrity: sha512-BfgQWZrtqowOQMC2bwaSNe7xcIjdDEgixWGYOd6AL0CbKHJlvhfdbINeAW76l1sO+1ov/MJ93ODJ9yluRituIw==}
     engines: {node: '>=12.13.0'}
     hasBin: true
@@ -3711,11 +3817,11 @@ packages:
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.4.21
-      postcss-import: 14.1.0(postcss@8.4.21)
-      postcss-js: 4.0.1(postcss@8.4.21)
-      postcss-load-config: 3.1.4(postcss@8.4.21)
-      postcss-nested: 6.0.0(postcss@8.4.21)
+      postcss: 8.4.28
+      postcss-import: 14.1.0(postcss@8.4.28)
+      postcss-js: 4.0.1(postcss@8.4.28)
+      postcss-load-config: 3.1.4(postcss@8.4.28)
+      postcss-nested: 6.0.0(postcss@8.4.28)
       postcss-selector-parser: 6.0.11
       postcss-value-parser: 4.2.0
       quick-lru: 5.1.1
@@ -3973,7 +4079,7 @@ packages:
       resolve: 1.22.1
       rollup: 3.15.0
     optionalDependencies:
-      fsevents: 2.3.2
+      fsevents: 2.3.3
     dev: false
 
   /vitefu@0.2.4(vite@4.1.2):
