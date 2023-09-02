@@ -1,7 +1,7 @@
 import Navbar from '$/components/Navbar';
 import { ActivePage } from "$/lib/dtypes";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
       <header className="sticky top-0 left-0 right-0 backdrop-blur">

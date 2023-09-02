@@ -1,8 +1,9 @@
 import Navbar from '$/components/Navbar';
-import AustinHead from '$/components/AustinHead';
+import AustinsHead from '$/components/AustinsHead';
 import { ActivePage } from "$/lib/dtypes";
 
-export default function Home() {
+
+export default function Page() {
   return (
     <>
       <header className="sticky top-0 left-0 right-0 backdrop-blur z-10">
@@ -11,7 +12,7 @@ export default function Home() {
         />
       </header>
       <main className="">
-        <AustinHead />
+        <AustinsHead />
         {new Array(100).fill(0).map((_, i) => (
           <p key={i}>Hello, World!</p>
         ))}

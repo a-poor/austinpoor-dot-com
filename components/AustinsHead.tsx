@@ -1,34 +1,28 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import NextImage from 'next/image';
 
-const MS_PER_FRAME = 1000 / 10;
+/** 
+ * The number of milliseconds to wait between 
+ * each frame of the animation.
+ */
+const MS_PER_FRAME = 1000 / 8;
+
+/**
+ * The paths to the images to use for the animation.
+ */
 const IMG_PATHS = new Array(18).fill(0)
     .map((_, i) => `${i}`.padStart(2, '0'))
     .map(n => `/images/austin-bntsg-${n}.png`);
 
-
-export default function AustinHead() {
+    
+export default function AustinsHead() {
     const [imgPathIdx, setImgPathIdx] = useState(0);
     useEffect(() => {
         // Define the timer...
-        let timer: ReturnType<typeof setTimeout> | undefined = undefined;
-
-        // Load all of the images asynchronously...
-        Promise.all(IMG_PATHS.map(path => new Promise((resolve, reject) => {
-            const img = new Image();
-            img.onload = () => resolve(img);
-            img.onerror = reject;
-            img.src = path;
-        })))
-        .then(images => {
-            // Create the timer...
-            timer = setInterval(() => {
-                setImgPathIdx(idx => (idx + 1) % images.length);
-            }, MS_PER_FRAME);
-        });
-
+        let timer = setInterval(() => {
+            setImgPathIdx(idx => (idx + 1) % IMG_PATHS.length);
+        }, MS_PER_FRAME);
 
         // Callback to clear the timer...
         return () => clearInterval(timer);
