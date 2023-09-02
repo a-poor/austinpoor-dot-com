@@ -36,18 +36,17 @@ export default function AustinHead() {
     return (
         <div className="py-10 bg-emerald-400">
             <div className="relative">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
-                    src={IMG_PATHS[imgPathIdx]} 
-                    alt="A photo of Austin's head, rotating in a circle, like in the Bill Nye the Science Guy intro."
-                    width={512}
-                    height={394}
-                    className="
-                        mx-auto
-                        w-[450px]
-                        rounded-full
-                    "
-                />
+                {IMG_PATHS.map((path, i) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img 
+                        key={i}
+                        src={path} 
+                        alt="A photo of Austin's head, rotating in a circle, like in the Bill Nye the Science Guy intro."
+                        width={512}
+                        height={394}
+                        className={"mx-auto w-[450px] rounded-full" + (i === imgPathIdx ? "" : " hidden")}
+                    />
+                ))}
                 <div className="block absolute text-center -bottom-5 w-full">
                     <h1 className="block text-center mx-auto text-6xl font-bold text-neutral-50 font-mono antialiased tracking-tighter">
                         {/* Hi, I&apos;m Austin! */}
