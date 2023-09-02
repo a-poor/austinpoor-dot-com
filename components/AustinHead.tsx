@@ -36,7 +36,8 @@ export default function AustinHead() {
     return (
         <div className="py-10 bg-emerald-400">
             <div className="relative">
-                <NextImage 
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
                     src={IMG_PATHS[imgPathIdx]} 
                     alt="A photo of Austin's head, rotating in a circle, like in the Bill Nye the Science Guy intro."
                     width={512}
