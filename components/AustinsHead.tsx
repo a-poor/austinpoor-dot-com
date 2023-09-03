@@ -11,7 +11,7 @@ const MS_PER_FRAME = 1000 / 8;
 /**
  * The paths to the images to use for the animation.
  */
-const IMG_PATHS = new Array(18).fill(0)
+const IMG_PATHS = new Array(16).fill(0)
     .map((_, i) => `${i}`.padStart(2, '0'))
     .map(n => `/images/austin-bntsg-${n}.png`);
 
