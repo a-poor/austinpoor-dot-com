@@ -1,7 +1,7 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
-import Navbar from "~/components/navbar/navbar";
+import Navbar, { ActiveTab } from "~/components/navbar/navbar";
 import Footer from "~/components/footer/footer";
 
 
@@ -20,11 +20,11 @@ export default component$(() => {
     <>
       <header class="sticky top-0 left-0 right-0 bg-stone-400 text-stone-50 py-3">
         <div class="max-w-7xl mx-auto px-4">
-          <Navbar />
+          <Navbar active={ActiveTab.Home} />
         </div>
       </header>
       
-      <main class="bg-stone-300 text-stone-900 dark:bg-stone-700 dark:text-stone-50">
+      <main class="bg-stone-200 text-stone-900 dark:bg-stone-700 dark:text-stone-50">
         <div class="max-w-7xl mx-auto px-4">
           {new Array(100).fill(0).map((_, i) => (
             <div key={i}>
@@ -39,9 +39,7 @@ export default component$(() => {
         </div>
       </main>
 
-      <footer>
-        <Footer />
-      </footer>
+      <Footer />
     </>
   );
 });
