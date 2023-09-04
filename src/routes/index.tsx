@@ -18,7 +18,7 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <>
-      <header class="sticky top-0 left-0 right-0 bg-stone-600 text-stone-50 py-3">
+      <header class="sticky top-0 left-0 right-0 bg-stone-400 text-stone-50 py-3">
         <div class="max-w-7xl mx-auto px-4">
           <Navbar />
         </div>
@@ -40,9 +40,7 @@ export default component$(() => {
       </main>
 
       <footer>
-        <div class="max-w-7xl mx-auto px-4">
-          <Footer />
-        </div>
+        <Footer />
       </footer>
     </>
   );
