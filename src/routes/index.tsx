@@ -18,11 +18,12 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <>
-      <header class="sticky top-0 left-0 right-0 bg-stone-400 text-stone-50 py-3">
-        <div class="max-w-7xl mx-auto px-4">
-          <Navbar active={ActiveTab.Home} />
-        </div>
+      <header class="sticky top-0 left-0 right-0 bg-stone-400 text-stone-50 py-3 h-[60px]">
+        <Navbar active={ActiveTab.Home} />
       </header>
+      <div class="block md:hidden bg-stone-400 fixed left-0 right-0 top-[60px] bottom-0">
+
+      </div>
       
       <main class="bg-stone-200 text-stone-900 dark:bg-stone-700 dark:text-stone-50">
         <div class="max-w-7xl mx-auto px-4">
