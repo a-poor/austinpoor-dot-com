@@ -21,9 +21,6 @@ export default component$(() => {
       <header class="sticky top-0 left-0 right-0 bg-stone-400 text-stone-50 py-3 h-[60px]">
         <Navbar active={ActiveTab.Home} />
       </header>
-      <div class="block md:hidden bg-stone-400 fixed left-0 right-0 top-[60px] bottom-0">
-
-      </div>
       
       {/* <main class="bg-gradient-to-b from-stone-300 to-stone-600 text-stone-900 dark:bg-stone-700 dark:text-stone-50"> */}
       <main class="bg-stone-200 text-stone-900 dark:bg-stone-700 dark:text-stone-50">
