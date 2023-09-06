@@ -18,12 +18,11 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <>
-      <header class="sticky top-0 left-0 right-0 bg-stone-400 text-stone-50 py-3 h-[60px]">
+      <header class="sticky top-0 left-0 right-0 backdrop-blur text-mauvedark-50 py-3 h-[60px]">
         <Navbar active={ActiveTab.Home} />
       </header>
       
-      {/* <main class="bg-gradient-to-b from-stone-300 to-stone-600 text-stone-900 dark:bg-stone-700 dark:text-stone-50"> */}
-      <main class="bg-stone-200 text-stone-900 dark:bg-stone-700 dark:text-stone-50">
+      <main class="text-mauve-0 dark:bg-mauvedark-700 dark:text-mauvedark-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
           <h1 class="text-7xl font-semibold text-center">
             Austin Poor
@@ -31,7 +30,6 @@ export default component$(() => {
           <h2 class="text-5xl font-medium text-center">
             Developer. Visionary. Inspiration.
           </h2>
-
         </section>
 
         <div class="max-w-7xl mx-auto px-4">
@@ -46,6 +44,7 @@ export default component$(() => {
             </div>
           ))}
         </div>
+
       </main>
 
       <Footer />

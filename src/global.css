@@ -39,5 +39,5 @@ body {
   padding: 0;
   line-height: inherit;
   
-  @apply bg-stone-600 text-stone-50;
+  @apply bg-mauvedark-1000 text-mauvedark-50;
 }
