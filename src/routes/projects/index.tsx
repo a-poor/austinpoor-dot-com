@@ -18,15 +18,18 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <>
-      <header class="sticky top-0 left-0 right-0 bg-mauvedark-400 text-mauvedark-50 py-3 h-[60px]">
-        <Navbar active={ActiveTab.Projects} />
-      </header>
-      <div class="block md:hidden bg-mauvedark-400 fixed left-0 right-0 top-[60px] bottom-0">
-
-      </div>
+      <Navbar active={ActiveTab.Projects} />
       
-      {/* <main class="bg-gradient-to-b from-mauvedark-300 to-mauvedark-600 text-mauvedark-900 dark:bg-mauvedark-700 dark:text-mauvedark-50"> */}
-      <main class="bg-mauvedark-200 text-mauvedark-900 dark:bg-mauvedark-700 dark:text-mauvedark-50">
+      <main class="text-mauve-0 dark:bg-mauvedark-700 dark:text-mauvedark-50">
+        <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
+          <h1 class="text-7xl font-semibold text-center">
+            Projects
+          </h1>
+          <h2 class="text-5xl font-medium text-center">
+            Developer. Visionary. Inspiration.
+          </h2>
+        </section>
+
         <div class="max-w-7xl mx-auto px-4">
           {new Array(100).fill(0).map((_, i) => (
             <div key={i}>
@@ -39,6 +42,7 @@ export default component$(() => {
             </div>
           ))}
         </div>
+
       </main>
 
       <Footer />

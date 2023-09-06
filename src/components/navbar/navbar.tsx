@@ -1,4 +1,4 @@
-import { component$, useSignal,  } from "@builder.io/qwik";
+import { component$, useSignal } from "@builder.io/qwik";
 import SearchButton from "~/components/search-button/search-button";
 
 export enum ActiveTab {
@@ -25,11 +25,11 @@ const navLinks = [
     href: "/projects",
     tab: ActiveTab.Projects,
   },
-  {
-    text: "Uses",
-    href: "/uses",
-    tab: ActiveTab.Uses,
-  },
+  // {
+  //   text: "Uses",
+  //   href: "/uses",
+  //   tab: ActiveTab.Uses,
+  // },
   {
     text: "About",
     href: "/about",
@@ -40,7 +40,7 @@ const navLinks = [
 export default component$<{active?: ActiveTab}>(({active}) => {
   const mobileNavOpen = useSignal(false);
   return (
-    <>
+    <header class="sticky top-0 left-0 right-0 backdrop-blur text-mauvedark-50 py-3 h-[60px]">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex flex-row space-x-2 md:space-x-4 items-center">
           {/* Logo / My Name */}
@@ -58,7 +58,7 @@ export default component$<{active?: ActiveTab}>(({active}) => {
             <SearchButton />
           </div>
           
-          
+          {/* Nav links (desktop) */}
           <nav class="hidden md:block">
             <ul class="flex flex-row space-x-1 bg-mauvedark-100 rounded-md px-2 py-2 group">
               {navLinks.map((link, i) => (
@@ -78,7 +78,7 @@ export default component$<{active?: ActiveTab}>(({active}) => {
             </ul>
           </nav>
 
-
+          {/* Hamburger (mobile) */}
           <button
             onclick$={() => {mobileNavOpen.value = !mobileNavOpen.value}}
             class="
@@ -105,11 +105,13 @@ export default component$<{active?: ActiveTab}>(({active}) => {
           </button>
         </div>
       </div>
+
+      {/* Nav links (mobile) */}
       {mobileNavOpen.value && (
         <div class="block md:hidden bg-mauvedark-400 fixed left-0 right-0 top-[60px] bottom-0">
 
         </div>
       )}
-    </>
+    </header>
   );
 });

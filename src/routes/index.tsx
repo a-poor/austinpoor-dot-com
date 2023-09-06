@@ -18,9 +18,7 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <>
-      <header class="sticky top-0 left-0 right-0 backdrop-blur text-mauvedark-50 py-3 h-[60px]">
-        <Navbar active={ActiveTab.Home} />
-      </header>
+      <Navbar active={ActiveTab.Home} />
       
       <main class="text-mauve-0 dark:bg-mauvedark-700 dark:text-mauvedark-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
