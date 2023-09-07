@@ -25,9 +25,9 @@ export default component$(() => {
           <h1 class="text-7xl font-semibold text-center">
             Austin Poor
           </h1>
-          <h2 class="text-5xl font-medium text-center">
+          <p class="text-5xl font-medium text-center">
             Developer. Visionary. Inspiration.
-          </h2>
+          </p>
         </section>
 
         <div class="max-w-7xl mx-auto px-4">

@@ -28,9 +28,10 @@ export default component$(() => {
         Search
       </span>
       
-      <kbd class="px-1.5 rounded-md hidden md:block flex flex-row items-baseline space-x-0.5 align-bottom">
-        <span class="text-xl">⌘</span>
-        <span class="">K</span>
+      <kbd class="px-1.5 text-sm rounded-md hidden md:flex flex-row items-stretch">
+        <span>Cmd</span>
+        <span>+</span>
+        <span>K</span>
       </kbd>
     </button>
   );

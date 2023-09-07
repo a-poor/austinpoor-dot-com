@@ -59,12 +59,13 @@ export default component$<{active?: ActiveTab}>(({active}) => {
           </div>
           
           {/* Nav links (desktop) */}
-          <nav class="hidden md:block">
+          <nav class="hidden md:block" aria-label="Primary">
             <ul class="flex flex-row space-x-1 bg-mauvedark-100 rounded-md px-2 py-2 group">
               {navLinks.map((link, i) => (
                 <li key={i}>
                   <a 
-                    href={link.href} 
+                    href={link.href}
+                    aria-current={active === link.tab ? "page" : undefined}
                     class={
                       active === link.tab 
                         ? "bg-mauvedark-700 text-mauvedark-100 rounded-md px-2 py-1" 

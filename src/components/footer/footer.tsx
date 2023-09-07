@@ -5,7 +5,7 @@ export default component$(() => {
     <footer>
       <div class="max-w-7xl mx-auto px-4 pt-8 pb-20 text-mauvedark-300">
         <div class="text-center mb-6">
-          Copyright © 2023 Austin Poor
+          Built by Austin Poor © 2023
         </div>
         <hr class="mx-auto w-16 mb-6 border-mauvedark-300"/>
         <div>
