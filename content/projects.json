@@ -1,0 +1,67 @@
+[
+  {
+    "title": "Watercooler",
+    "description": "A desktop application for interacting with the ChatGPT API, written with Rust, Tauri, React, and Mantine.",
+    "href": "https://github.com/a-poor/watercooler"
+  },
+  {
+    "title": "Algorithmic Color Palettes",
+    "description": "Using clustering algorithms to create color palettes from movie stills.",
+    "href": "https://github.com/a-poor/color-palettes"
+  },
+  {
+    "title": "vhttp",
+    "description": "A simple HTTP testing library for Go.",
+    "href": "https://github.com/a-poor/vhttp"
+  },
+  {
+    "title": "apoor-dot-dev",
+    "description": "A URL shortener written in Rust and deployed on Fly.io.",
+    "href": "https://github.com/a-poor/apoor-dot-dev"
+  },
+  {
+    "title": "Predicting Spotify Track Skips",
+    "description": "Using a dataset of listening sessions to predict whether or not a user would skip a given track.",
+    "href": "https://github.com/a-poor/spotify-skip-prediction"
+  },
+  {
+    "title": "ssh.austinpoor.com",
+    "description": "A sample TUI SSH server built with Go, Wish, and Lipgloss. Give it a try at ssh.austinpoor.com!",
+    "href": "https://github.com/a-poor/apoor-ssh"
+  },
+  {
+    "title": "RL Chrome Dino-Game Solver",
+    "description": "Playing the Chrome no-internet-dinosaur game with Selenium, reinforcement learning, and heuristics.",
+    "href": "https://github.com/a-poor/chrome-dino-solver"
+  },
+  {
+    "title": "Password Generator",
+    "description": "A PoC of a password generator GUI app built with Rust, Tauri, and Svelte.",
+    "href": "https://github.com/a-poor/apoor-ssh"
+  },
+  {
+    "title": "bcrypt-rsjs",
+    "description": "A PoC of a bcrypt password-hashing library for Node.js, written in Rust and Neon \u2013 designed to replace \"bcrypt\", which uses C++.",
+    "href": "https://github.com/a-poor/bcrypt-rsjs"
+  },
+  {
+    "title": "Handling ML Predictions in a Flask App",
+    "description": "Handling long-running processes \u2013 like ML model predictions \u2013 inside a Flask app using Celery.",
+    "href": "https://github.com/a-poor/flask-celery-ml"
+  },
+  {
+    "title": "fun-run",
+    "description": "A CLI for executing multiple processes in parallel \u2013 like docker compose without the containers.",
+    "href": "https://github.com/a-poor/fun-run"
+  },
+  {
+    "title": "Political Text Classification with LSTMs",
+    "description": "Using Deep Learning and LSTMs to attempt to classify the political leaning of a news article.",
+    "href": "https://github.com/a-poor/PoliticalTextClassification"
+  },
+  {
+    "title": "Grover's Algorithm in Processing",
+    "description": "A visualization of Grover's Algorithm \u2013 a quantum algorithm for searching unstructured data \u2013 written in Processing.",
+    "href": "https://github.com/a-poor/ProcessingGroversAlgorithm"
+  }
+]
