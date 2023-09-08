@@ -20,7 +20,7 @@ export default component$(() => {
     <>
       <Navbar active={ActiveTab.About} />
       
-      <main class="text-mauve-0 dark:bg-mauvedark-700 dark:text-mauvedark-50">
+      <main class="text-mauve-0 dark:bg-mauved-700 dark:text-mauved-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
           <h1 class="text-7xl font-semibold text-center">
             About Me
