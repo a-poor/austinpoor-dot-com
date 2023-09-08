@@ -1,5 +1,9 @@
-import { component$, Slot } from "@builder.io/qwik";
-import type { RequestHandler } from "@builder.io/qwik-city";
+import { component$, Slot, useContextProvider } from "@builder.io/qwik";
+import { 
+  routeLoader$, 
+  type RequestHandler,
+} from "@builder.io/qwik-city";
+import { PlatformIsMacContext } from "~/routes/PlatformIsMacContext";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -12,6 +16,13 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
+export const useIsMac = routeLoader$(async (requestEvent)  => {
+  const userAgent = requestEvent.request.headers.get("user-agent");
+  return userAgent && userAgent.toLowerCase().includes("mac");
+});
+
 export default component$(() => {
+  const isMac = useIsMac();
+  useContextProvider(PlatformIsMacContext, isMac);
   return <Slot />;
 });

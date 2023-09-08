@@ -1,7 +1,9 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useContext } from "@builder.io/qwik";
+import { PlatformIsMacContext } from "~/routes/PlatformIsMacContext";
 
 
 export default component$(() => {
+  const isMac = useContext(PlatformIsMacContext);
   return (
     <button
       class="
@@ -29,7 +31,12 @@ export default component$(() => {
       </span>
       
       <kbd class="px-1.5 text-sm rounded-md hidden md:flex flex-row items-stretch">
-        <span>Cmd</span>
+        {isMac.value && (
+          <span>Cmd</span>
+        )}
+        {!isMac.value && (
+          <span>Ctrl</span>
+        )}
         <span>+</span>
         <span>K</span>
       </kbd>
