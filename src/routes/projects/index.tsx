@@ -4,6 +4,8 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 import Navbar, { ActiveTab } from "~/components/navbar/navbar";
 import Footer from "~/components/footer/footer";
 
+import { projectData } from "~/lib";
+
 
 export const head: DocumentHead = {
   title: "AustinPoor.com",
@@ -22,26 +24,31 @@ export default component$(() => {
       
       <main class="text-mauve-0 dark:bg-mauved-700 dark:text-mauved-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
-          <h1 class="text-7xl font-semibold text-center">
+          <h1 class="text-7xl font-semibold text-center mb-8">
             Projects
           </h1>
-          <h2 class="text-5xl font-medium text-center">
-            Developer. Visionary. Inspiration.
-          </h2>
+          <p class="text-lg font-medium text-center">
+            
+          </p>
         </section>
 
-        <div class="max-w-7xl mx-auto px-4">
-          {new Array(100).fill(0).map((_, i) => (
-            <div key={i}>
-              <h1>Hi 👋</h1>
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {projectData.map(p => (
+            <div key={ p.title } class="px-4 py-4 flex flex-col space-y-2">
+              <h2 class="">
+                { p.title }
+              </h2>
               <p>
-                Can't wait to see what you build with qwik!
-                <br />
-                Happy coding.
+                { p.description }
+              </p>
+              <p>
+                <a href={ p.href } class="text-mauve-300 hover:text-mauve-200">
+                  Check it out &rarr;
+                </a>
               </p>
             </div>
           ))}
-        </div>
+        </section>
 
       </main>
 

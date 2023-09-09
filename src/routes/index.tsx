@@ -50,11 +50,11 @@ export default component$(() => {
             Projects
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            {projectData.map((project) => (
-              <div key={ project.title } class="px-4 py-4 flex flex-col space-y-2 border">
-                <a href={ project.href } target="_blank" rel="" class="block text-xl">
+            {projectData.slice(0, 5).map((project) => (
+              <div key={ project.title } class="px-4 py-4 flex flex-col space-y-2">
+                <h3 class="block text-xl">
                   { project.title }
-                </a>
+                </h3>
                 <p class="">
                   { project.description }
                 </p>
@@ -65,6 +65,11 @@ export default component$(() => {
                 </p>
               </div>
             ))}
+          </div>
+          <div class="py-8 text-center">
+            <a href="/projects" class="text-xl">
+              See more projects &rarr;
+            </a>
           </div>
         </section>
 
