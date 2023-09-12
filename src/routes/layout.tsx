@@ -1,4 +1,4 @@
-import { component$, Slot, useContextProvider, useOnWindow, $, useSignal } from "@builder.io/qwik";
+import { component$, Slot, useContextProvider, useOnDocument, $, useSignal, useContext, useVisibleTask$ } from "@builder.io/qwik";
 import { 
   routeLoader$, 
   type RequestHandler,
@@ -19,6 +19,38 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
   });
 };
 
+const SearchPortalBackground = component$(() => {
+  const portalOpen = useContext(PortalProviderContext);
+  useVisibleTask$(() => {
+    animate("#search-portal-background",
+      {
+        opacity: [0, 1],
+      },
+      { duration: 0.05 },
+    );
+  });
+  return (
+    <div 
+      id="search-portal-background"
+      class="absolute z-10 inset-0 bg-mauved-700/50 flex items-center justify-center" 
+      onClick$={() => {
+        animate("#search-modal",
+          {
+            opacity: [1, 0],
+            scale: [1, 0.9],
+            y: [0, 20],
+          },
+          { duration: 0.05 },
+        ).finished.then(() => {
+          portalOpen.value = false;
+        });
+      }}
+    >
+      <Slot />
+    </div>
+  );
+});
+
 export const useIsMac = routeLoader$(async (requestEvent)  => {
   const userAgent = requestEvent.request.headers.get("user-agent");
   return userAgent && userAgent.toLowerCase().includes("mac");
@@ -34,16 +66,23 @@ export default component$(() => {
   useContextProvider(PortalProviderContext, portalOpen);
 
   // Detect hotkeys to open/close the portal...
-  useOnWindow('keydown',  $((e) => {
+  useOnDocument('keydown',  $((e) => {
+    console.log("Keydown pressed");
+
     const { key, ctrlKey, metaKey } = e as KeyboardEvent;
     const pressedOnMac = isMac.value && metaKey && key === "k";
     const pressedOnNotMac = !isMac.value && ctrlKey && key === "k";
+
+    console.log(key);
     
-    if (pressedOnMac || pressedOnNotMac) {
+    if (!portalOpen.value && pressedOnMac || pressedOnNotMac) {
+      console.log("Opening portal");
       portalOpen.value = true;
       window.scrollTo(0, 0);
+      console.log("Portal opened");
     }
-    if (key === "Escape") {
+    if (portalOpen.value && key === "Escape") {
+      console.log("Closing portal");
       animate("#search-modal",
         {
           opacity: [1, 0],
@@ -54,29 +93,16 @@ export default component$(() => {
       ).finished.then(() => {
         portalOpen.value = false;
       });
+      console.log("Portal closed");
     }
   }));
   return (
     <>
       <Slot />
       {portalOpen.value && (
-        <div 
-          class="absolute z-10 inset-0 bg-mauved-700/50 flex items-center justify-center" 
-          onClick$={() => {
-            animate("#search-modal",
-              {
-                opacity: [1, 0],
-                scale: [1, 0.9],
-                y: [0, 20],
-              },
-              { duration: 0.05 },
-            ).finished.then(() => {
-              portalOpen.value = false;
-            });
-          }}
-        >
+        <SearchPortalBackground>
           <SearchModal />
-        </div>
+        </SearchPortalBackground>
       )}
     </>
   );
