@@ -1,4 +1,4 @@
-import { component$, Slot, useContextProvider, useOnDocument, $, useSignal, useContext, useVisibleTask$ } from "@builder.io/qwik";
+import { component$, Slot, useContextProvider, useSignal, useContext, useVisibleTask$ } from "@builder.io/qwik";
 import { 
   routeLoader$, 
   type RequestHandler,
@@ -7,6 +7,8 @@ import { PlatformIsMacContext } from "~/routes/PlatformIsMacContext";
 import { PortalProviderContext } from "~/routes/PortalProvider";
 import { SearchModal } from "~/components/search-modal/search-modal";
 import { animate } from "motion";
+import hotkeys from 'hotkeys-js';
+
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -65,37 +67,36 @@ export default component$(() => {
   useContextProvider(PlatformIsMacContext, isMac);
   useContextProvider(PortalProviderContext, portalOpen);
 
-  // Detect hotkeys to open/close the portal...
-  useOnDocument('keydown',  $((e) => {
-    console.log("Keydown pressed");
+  useVisibleTask$(() => {
+    hotkeys('ctrl+k, command+k, esc', function (event, handler){
+      switch (handler.key) {
+      case 'ctrl+k': 
+      case 'command+k': 
+        console.log("Opening portal");
+        portalOpen.value = true;
+        window.scrollTo(0, 0);
+        console.log("Portal opened");
+        break;
+      case 'esc': 
+        console.log("Closing portal");
+        animate("#search-modal",
+          {
+            opacity: [1, 0],
+            scale: [1, 0.9],
+            y: [0, 20],
+          },
+          { duration: 0.05 },
+        ).finished.then(() => {
+          portalOpen.value = false;
+        });
+        console.log("Portal closed");
+        break;
+      default: 
+        alert(event);
+      }
+    });    
+  });
 
-    const { key, ctrlKey, metaKey } = e as KeyboardEvent;
-    const pressedOnMac = isMac.value && metaKey && key === "k";
-    const pressedOnNotMac = !isMac.value && ctrlKey && key === "k";
-
-    console.log(key);
-    
-    if (!portalOpen.value && pressedOnMac || pressedOnNotMac) {
-      console.log("Opening portal");
-      portalOpen.value = true;
-      window.scrollTo(0, 0);
-      console.log("Portal opened");
-    }
-    if (portalOpen.value && key === "Escape") {
-      console.log("Closing portal");
-      animate("#search-modal",
-        {
-          opacity: [1, 0],
-          scale: [1, 0.9],
-          y: [0, 20],
-        },
-        { duration: 0.05 },
-      ).finished.then(() => {
-        portalOpen.value = false;
-      });
-      console.log("Portal closed");
-    }
-  }));
   return (
     <>
       <Slot />
