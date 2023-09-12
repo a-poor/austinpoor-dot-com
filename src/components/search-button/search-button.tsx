@@ -1,11 +1,17 @@
 import { component$, useContext } from "@builder.io/qwik";
 import { PlatformIsMacContext } from "~/routes/PlatformIsMacContext";
+import { PortalProviderContext } from "~/routes/PortalProvider";
 
 
 export default component$(() => {
   const isMac = useContext(PlatformIsMacContext);
+  const portalOpen = useContext(PortalProviderContext);
   return (
     <button
+      onClick$={() => {
+        portalOpen.value = true;
+        window.scrollTo(0, 0);
+      }}
       class="
         flex 
         flex-row 
@@ -15,6 +21,7 @@ export default component$(() => {
         rounded-md 
         px-2 
         py-1.5
+        md:py-2
         text-mauved-600 
         hover:bg-mauved-50
         hover:text-mauved-800

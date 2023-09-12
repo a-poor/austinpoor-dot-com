@@ -31,7 +31,7 @@ export default component$(() => {
         </section>
 
         <div class="max-w-7xl mx-auto px-4">
-          {new Array(100).fill(0).map((_, i) => (
+          {new Array(20).fill(0).map((_, i) => (
             <div key={i}>
               <h1>Hi 👋</h1>
               <p>
