@@ -3,6 +3,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 
 import Navbar, { ActiveTab } from "~/components/navbar/navbar";
 import Footer from "~/components/footer/footer";
+import { BackgroundColor } from "~/components/background-color/background-color";
 
 
 export const head: DocumentHead = {
@@ -42,9 +43,9 @@ export default component$(() => {
             </div>
           ))}
         </div>
-
       </main>
 
+      <BackgroundColor />
       <Footer />
     </>
   );

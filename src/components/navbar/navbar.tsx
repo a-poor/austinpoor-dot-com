@@ -60,7 +60,7 @@ export default component$<{active?: ActiveTab}>(({active}) => {
           
           {/* Nav links (desktop) */}
           <nav class="hidden md:block" aria-label="Primary">
-            <ul class="flex flex-row space-x-1 bg-mauved-100 rounded-md px-2 py-2 group">
+            <ul class="flex flex-row space-x-1 bg-mauved-100 hover:bg-mauved-50 rounded-md px-2 py-2 group">
               {navLinks.map((link, i) => (
                 <li key={i}>
                   <a 
@@ -68,8 +68,8 @@ export default component$<{active?: ActiveTab}>(({active}) => {
                     aria-current={active === link.tab ? "page" : undefined}
                     class={
                       active === link.tab 
-                        ? "bg-mauved-700 text-mauved-100 rounded-md px-2 py-1" 
-                        : "text-mauved-700 rounded-md px-2 py-1 hover:bg-mauved-50/50"
+                        ? "bg-mauved-700 text-mauved-100 group-hover:text-mauved-50 rounded-md px-2 py-1" 
+                        : "text-mauved-700 rounded-md px-2 py-1 hover:bg-mauved-100/50"
                     }
                   >
                     { link.text }

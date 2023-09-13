@@ -3,6 +3,7 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 
 import Navbar, { ActiveTab } from "~/components/navbar/navbar";
 import Footer from "~/components/footer/footer";
+import { BackgroundColor } from "~/components/background-color/background-color";
 
 import { projectData } from "~/lib";
 
@@ -49,20 +50,9 @@ export default component$(() => {
             </div>
           ))}
         </section>
-
       </main>
 
-      <div class="fixed inset-0 select-none pointer-events-none">
-        <img
-          width="1440"
-          height="1024"
-          // eslint-disable-next-line qwik/jsx-img
-          src="/images/blurred-gradient-background.svg" 
-          alt="" 
-          class="w-full h-full object-right object-cover opacity-75" 
-        />
-      </div>
-
+      <BackgroundColor />
       <Footer />
     </>
   );

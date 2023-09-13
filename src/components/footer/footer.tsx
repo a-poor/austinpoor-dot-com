@@ -11,22 +11,22 @@ export default component$(() => {
         <div>
           <ul class="w-fit mx-auto flex flex-row space-x-4 underline">
             <li>
-              <a href="https://github.com/a-poor" target="_blank" rel="external">
+              <a href="https://github.com/a-poor" target="_blank" rel="external" class="hover:text-mauved-100">
                 GitHub
               </a>
             </li>
             <li>
-              <a href="https://linkedin.com/in/austinpoor" target="_blank" rel="external">
+              <a href="https://linkedin.com/in/austinpoor" target="_blank" rel="external" class="hover:text-mauved-100">
                 LinkedIn
               </a>
             </li>
             <li>
-              <a href="https://mastodon.social/@austinpoor" target="_blank" rel="external">
+              <a href="https://mastodon.social/@austinpoor" target="_blank" rel="external" class="hover:text-mauved-100">
                 Mastodon
               </a>
             </li>
             <li>
-              <a href="https://austinpoor.com/rss.xml">
+              <a href="https://austinpoor.com/rss.xml" class="hover:text-mauved-100">
                 RSS
               </a>
             </li>

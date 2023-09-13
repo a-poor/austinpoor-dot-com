@@ -41,3 +41,10 @@ body {
   
   @apply bg-mauved-1000 text-mauved-50;
 }
+
+.bg-noisy {
+  background-image: url(/images/noise.png);
+  background-repeat: repeat;
+  background-size: 182px;
+  opacity: .03;
+}
