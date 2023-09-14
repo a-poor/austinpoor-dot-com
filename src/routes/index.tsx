@@ -55,6 +55,16 @@ export default component$(() => {
       bottom: 0;
       width: calc(100% + 10px);
     }
+
+    @media (prefers-reduced-motion) {
+      .anim-hl-0 {
+        animation: none;
+      }
+
+      .anim-hl-1 {
+        animation: none;
+      }
+    }
   `);
   return (
     <>
