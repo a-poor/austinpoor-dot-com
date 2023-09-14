@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 import Navbar, { ActiveTab } from "~/components/navbar/navbar";
@@ -19,21 +19,65 @@ export const head: DocumentHead = {
 };
 
 export default component$(() => {
+  useStylesScoped$(`
+    @keyframes animHighlight {
+      0% {
+        width: 0%;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        width: 100%;
+        opacity: 1;
+      }
+    }
+    
+    .anim-hl-0 {
+      animation: 1000ms ease-in-out 0s 1 animHighlight;
+      background-color: rgb(116 139 253 / 85%);
+      z-index: -1;
+      position: absolute;
+      left: -5px;
+      top: 0;
+      bottom: 0;
+      width: calc(100% + 10px);
+    }
+    
+    .anim-hl-1 {
+      animation: 900ms ease-in-out 100ms 1 animHighlight;
+      background-color: rgb(194 116 253 / 85%);
+      z-index: -1;
+      position: absolute;
+      left: -5px;
+      top: 0;
+      bottom: 0;
+      width: calc(100% + 10px);
+    }
+  `);
   return (
     <>
       <Navbar active={ActiveTab.Home} />
       
       <main class="text-mauve-0 dark:bg-mauved-700 dark:text-mauved-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
-          <h1 class="text-7xl font-semibold text-center">
-            Austin Poor
+          <h1 class="text-6xl font-bold text-center mx-auto mb-6">
+            Hi, I'm Austin!
           </h1>
-          <p class="text-5xl font-medium text-center">
-            Developer. Visionary. Inspiration.
-          </p>
+          <h2 class="text-2xl sm:text-5xl font-normal text-center max-w-3xl mx-auto flex flex-col space-y-1 sm:space-y-4">
+            <div>
+              <span>I'm a </span>
+              <span class="relative">full-stack software engineer<div class="anim-hl-0"/></span>
+            </div>
+            <div>
+              <span>curremtly living in </span>
+              <span class="relative">Los Angeles, CA.<div class="anim-hl-1"/></span>
+            </div>
+          </h2>
         </section>
 
-        <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-7xl mx-auto px-0 ">
           {new Array(20).fill(0).map((_, i) => (
             <div key={i}>
               <h1>Hi 👋</h1>
