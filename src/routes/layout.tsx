@@ -34,7 +34,7 @@ const SearchPortalBackground = component$(() => {
   return (
     <div 
       id="search-portal-background"
-      class="absolute z-10 inset-0 bg-mauved-700/50 flex items-center justify-center" 
+      class="absolute z-10 inset-0 bg-mauved-700/50 flex items-center justify-center opacity-0" 
       onClick$={() => {
         animate("#search-modal",
           {
@@ -72,13 +72,11 @@ export default component$(() => {
       switch (handler.key) {
       case 'ctrl+k': 
       case 'command+k': 
-        console.log("Opening portal");
+        event.preventDefault();
         portalOpen.value = true;
         window.scrollTo(0, 0);
-        console.log("Portal opened");
         break;
-      case 'esc': 
-        console.log("Closing portal");
+      case 'esc':
         animate("#search-modal",
           {
             opacity: [1, 0],
@@ -89,7 +87,6 @@ export default component$(() => {
         ).finished.then(() => {
           portalOpen.value = false;
         });
-        console.log("Portal closed");
         break;
       default: 
         alert(event);
