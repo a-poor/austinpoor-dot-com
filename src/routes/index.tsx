@@ -65,7 +65,7 @@ export default component$(() => {
           <h1 class="text-6xl font-bold text-center mx-auto mb-6">
             Hi, I'm Austin!
           </h1>
-          <h2 class="text-2xl sm:text-5xl font-normal text-center max-w-3xl mx-auto flex flex-col space-y-1 sm:space-y-4">
+          <h2 class="text-2xl sm:text-5xl font-normal text-center max-w-3xl mx-auto flex flex-col space-y-1 sm:space-y-5">
             <div>
               <span>I'm a </span>
               <span class="relative">full-stack software engineer<div class="anim-hl-0"/></span>
