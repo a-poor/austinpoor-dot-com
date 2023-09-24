@@ -5,7 +5,7 @@ export default component$(() => {
     <footer>
       <div class="max-w-7xl mx-auto px-4 pt-8 pb-20 text-mauved-300">
         <div class="text-center mb-6">
-          Built by Austin Poor © 2023
+          Austin Poor © 2023 (<a class="underline" href="https://github.com/a-poor/austinpoor-dot-com">View Source</a>)
         </div>
         <hr class="mx-auto w-16 mb-6 border-mauved-300"/>
         <div>

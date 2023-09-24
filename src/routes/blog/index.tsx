@@ -2,8 +2,6 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 
 import Navbar, { ActiveTab } from "~/components/navbar/navbar";
-import Footer from "~/components/footer/footer";
-import { BackgroundColor } from "~/components/background-color/background-color";
 
 
 export const head: DocumentHead = {
@@ -21,7 +19,7 @@ export default component$(() => {
     <>
       <Navbar active={ActiveTab.Blog} />
       
-      <main class="text-mauve-0 dark:bg-mauved-700 dark:text-mauved-50">
+      <main class="text-mauved-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
           <h1 class="text-7xl font-semibold text-center">
             Blog
@@ -44,9 +42,6 @@ export default component$(() => {
           ))}
         </div>
       </main>
-
-      <BackgroundColor />
-      <Footer />
     </>
   );
 });

@@ -1,30 +1,28 @@
 import { component$ } from "@builder.io/qwik";
-import { useLocation, type DocumentHead } from "@builder.io/qwik-city";
+import type { DocumentHead } from "@builder.io/qwik-city";
+
 import Navbar, { ActiveTab } from "~/components/navbar/navbar";
-import Footer from "~/components/footer/footer";
-import { BackgroundColor } from "~/components/background-color/background-color";
 
 
 export const head: DocumentHead = {
-  title: "Welcome to Qwik",
+  title: "AustinPoor.com",
   meta: [
     {
       name: "description",
-      content: "Qwik site description",
+      content: "Austin Poor's personal website.",
     },
   ],
 };
 
 export default component$(() => {
-  const loc = useLocation();
   return (
     <>
       <Navbar active={ActiveTab.Blog} />
       
-      <main class="text-mauve-0 dark:bg-mauved-700 dark:text-mauved-50">
+      <main class="text-mauved-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
           <h1 class="text-7xl font-semibold text-center">
-            Blog: {loc.params.slug}
+            Blog
           </h1>
           <h2 class="text-5xl font-medium text-center">
             Developer. Visionary. Inspiration.
@@ -44,10 +42,6 @@ export default component$(() => {
           ))}
         </div>
       </main>
-
-      <BackgroundColor />
-      <Footer />
     </>
   );
 });
-

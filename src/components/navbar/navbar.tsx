@@ -7,6 +7,7 @@ export enum ActiveTab {
   Projects = "projects",
   Uses = "uses",
   About = "about",
+  Etc = "etc",
 }
 
 const navLinks = [
@@ -30,6 +31,11 @@ const navLinks = [
   //   href: "/uses",
   //   tab: ActiveTab.Uses,
   // },
+  {
+    text: "Etc.",
+    href: "/etc",
+    tab: ActiveTab.Etc,
+  },
   {
     text: "About",
     href: "/about",
@@ -133,7 +139,7 @@ export default component$<{active?: ActiveTab}>(({active}) => {
                           : "stroke-[4] text-transparent group-hover:text-mauved-100/50"
                       }
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="5" stroke="currentColor" class="w-7 h-7">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="5" stroke="currentColor" class="w-12 h-12">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                       </svg>
                     </span>

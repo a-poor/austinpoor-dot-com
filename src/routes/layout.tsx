@@ -3,9 +3,13 @@ import {
   routeLoader$, 
   type RequestHandler,
 } from "@builder.io/qwik-city";
+
 import { PlatformIsMacContext } from "~/routes/PlatformIsMacContext";
 import { PortalProviderContext } from "~/routes/PortalProvider";
 import { SearchModal } from "~/components/search-modal/search-modal";
+import { BackgroundColor } from "~/components/background-color/background-color";
+import Footer  from "~/components/footer/footer";
+
 import { animate } from "motion";
 import hotkeys from 'hotkeys-js';
 
@@ -93,10 +97,13 @@ export default component$(() => {
       }
     });    
   });
-
+  
   return (
     <>
       <Slot />
+      <BackgroundColor />
+      <Footer />
+      
       {portalOpen.value && (
         <SearchPortalBackground>
           <SearchModal />

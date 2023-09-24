@@ -3,7 +3,7 @@ import { component$ } from '@builder.io/qwik';
 
 export const BackgroundColor = component$(() => {
   return (
-    <div class="fixed inset-0 -z-[5] select-none pointer-events-none">
+    <div class="fixed inset-0 -z-[1] select-none pointer-events-none">
       <img
         width="1440"
         height="1024"
