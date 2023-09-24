@@ -1,5 +1,6 @@
 import { component$, useSignal } from "@builder.io/qwik";
 import SearchButton from "~/components/search-button/search-button";
+// import MiniRotatingHead from "~/media/images/austin-nye-135.gif?jsx";
 
 export enum ActiveTab {
   Home = "home",
@@ -59,7 +60,18 @@ export default component$<{active?: ActiveTab}>(({active}) => {
         <div class="max-w-7xl mx-auto px-4 z-20">
           <div class="flex flex-row space-x-2 md:space-x-4 items-center">
             {/* Logo / My Name */}
-            <div>
+            <div class="flex items-center space-x-4">
+              {/* eslint-disable-next-line qwik/jsx-img */}
+              <img 
+                class="block h-full" 
+                // eslint-disable-next-line qwik/jsx-img
+                src="/images/austin-nye-135.gif" 
+                alt="A gif of Austin's head, rotating." 
+                width={40}
+                height={40}
+                decoding="async"
+                loading="lazy"
+              />
               <a href="/" class="text-xl font-semibold">
                 Austin Poor
               </a>

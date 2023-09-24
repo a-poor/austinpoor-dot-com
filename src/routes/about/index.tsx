@@ -3,6 +3,8 @@ import type { DocumentHead } from "@builder.io/qwik-city";
 
 import Navbar, { ActiveTab } from "~/components/navbar/navbar";
 
+import ApAndScranWideImg from "~/media/images/ap-and-scran-wide.png?jsx";
+
 
 export const head: DocumentHead = {
   title: "AustinPoor.com",
@@ -17,30 +19,29 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <>
-      <Navbar active={ActiveTab.Blog} />
+      <Navbar active={ActiveTab.About} />
       
       <main class="text-mauved-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
           <h1 class="text-7xl font-semibold text-center">
             About Me
           </h1>
-          <h2 class="text-5xl font-medium text-center">
-            Developer. Visionary. Inspiration.
-          </h2>
+          <div>
+            <ApAndScranWideImg 
+              class="mx-auto hidden"
+            />
+            <img 
+              class="block h-full mx-auto" 
+              // eslint-disable-next-line qwik/jsx-img
+              src="/images/austin-nye-540.gif" 
+              alt="A gif of Austin's head, rotating." 
+              width={500}
+              height={500}
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
         </section>
-
-        <div class="max-w-7xl mx-auto px-4">
-          {new Array(20).fill(0).map((_, i) => (
-            <div key={i}>
-              <h1>Hi 👋</h1>
-              <p>
-                Can't wait to see what you build with qwik!
-                <br />
-                Happy coding.
-              </p>
-            </div>
-          ))}
-        </div>
       </main>
     </>
   );

@@ -17,16 +17,13 @@ export const head: DocumentHead = {
 export default component$(() => {
   return (
     <>
-      <Navbar active={ActiveTab.Blog} />
+      <Navbar active={ActiveTab.Etc} />
       
       <main class="text-mauved-50">
         <section class="max-w-7xl mx-auto px-4 pt-24 pb-32">
           <h1 class="text-7xl font-semibold text-center">
             /etc
           </h1>
-          <h2 class="text-5xl font-medium text-center">
-            Developer. Visionary. Inspiration.
-          </h2>
         </section>
 
         <div class="max-w-7xl mx-auto px-4">
