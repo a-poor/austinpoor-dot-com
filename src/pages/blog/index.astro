@@ -26,6 +26,10 @@ function formatDate(d: Date): string {
 const pageTitle = "Blog | Austin Poor";
 const pageDescription =
   "Check out my recent blog posts and let me know what you think!";
+
+const allTags = Array.from(
+  new Set(blogPosts.map((p) => p.data.tags).flat())
+).toSorted();
 ---
 
 <Layout
@@ -70,14 +74,10 @@ const pageDescription =
             href={`/blog/${b.slug}`}
             class:list={[
               "flex",
-              "flex-col",
-              "sm:flex-row",
-              "items-center",
-              "sm:items-start",
+              "flex-row",
+              "items-stretch",
               "space-x-0",
               "sm:space-x-6",
-              "space-y-6",
-              "sm:space-y-0",
             ]}
           >
             <Image
@@ -85,12 +85,12 @@ const pageDescription =
               alt={b.data.image.alt}
               height={200}
               width={200}
-              class="w-[200px] h-[200px] object-cover aspect-square rounded-md"
+              class="w-[200px] h-[200px] object-cover aspect-square rounded-md hidden sm:block"
               decoding="async"
               loading={i < 3 ? "eager" : "lazy"}
               transition:name={"blog-image-" + b.slug}
             />
-            <div class="flex-grow text-center sm:text-left">
+            <div class="flex-grow gap-y-2">
               <h2 class="text-2xl font-semibold tracking-tight">
                 <span transition:name={"blog-title-" + b.slug}>
                   {b.data.title}
@@ -102,7 +102,28 @@ const pageDescription =
               >
                 {formatDate(b.data.publishDate)}
               </time>
-              <p class="text-base line-clamp-4">{b.data.description}</p>
+              <p class="text-base line-clamp-4 flex-grow">
+                {b.data.description}
+              </p>
+              <div transition:name={"blog-tags-" + b.slug} class="pt-2">
+                {b.data.tags.map((tag) => (
+                  <span
+                    class:list={[
+                      "text-xs",
+                      "bg-zinc-600",
+                      "text-zinc-50",
+                      "rounded",
+                      "px-2",
+                      "py-1",
+                      "mr-2",
+                      "lowercase",
+                      "leading-8",
+                    ]}
+                  >
+                    #{tag.replace(" ", "-")}
+                  </span>
+                ))}
+              </div>
             </div>
           </a>
         </li>
