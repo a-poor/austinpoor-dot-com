@@ -100,12 +100,11 @@ const allTags = Array.from(
                 class="text-sm text-zinc-400"
                 datetime={b.data.publishDate.toISOString()}
               >
-                {formatDate(b.data.publishDate)}
+                <span transition:name={"blog-date-" + b.slug}>
+                  {formatDate(b.data.publishDate)}
+                </span>
               </time>
-              <p class="text-base line-clamp-4 flex-grow">
-                {b.data.description}
-              </p>
-              <div transition:name={"blog-tags-" + b.slug} class="pt-2">
+              <div transition:name={"blog-tags-" + b.slug} class="py-1">
                 {b.data.tags.map((tag) => (
                   <span
                     class:list={[
@@ -124,6 +123,12 @@ const allTags = Array.from(
                   </span>
                 ))}
               </div>
+              <p
+                class="text-base line-clamp-4 flex-grow"
+                transition:name={"blog-content-" + b.slug}
+              >
+                {b.data.description}
+              </p>
             </div>
           </a>
         </li>

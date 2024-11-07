@@ -174,7 +174,9 @@ const recs = await Promise.all(
             Written by Austin Poor
           </p>
           <p class="text-sm font-medium text-slate-200">
-            Published: {formatDate(entry.data.publishDate)}
+            Published: <span transition:name={"blog-date-" + entry.slug}
+              >{formatDate(entry.data.publishDate)}</span
+            >
             {
               entry.data.updateDate && (
                 <>
@@ -183,6 +185,27 @@ const recs = await Promise.all(
               )
             }
           </p>
+          <div transition:name={"blog-tags-" + entry.slug} class="pt-2">
+            {
+              entry.data.tags.map((tag) => (
+                <span
+                  class:list={[
+                    "text-xs",
+                    "bg-zinc-600",
+                    "text-zinc-50",
+                    "rounded",
+                    "px-2",
+                    "py-1",
+                    "mr-2",
+                    "lowercase",
+                    "leading-8",
+                  ]}
+                >
+                  #{tag.replace(" ", "-")}
+                </span>
+              ))
+            }
+          </div>
         </div>
 
         <div class="pb-2">
@@ -216,7 +239,7 @@ const recs = await Promise.all(
           </figure>
         </div>
 
-        <article>
+        <article transition:name={"blog-content-" + entry.slug}>
           <Content />
         </article>
       </div>
