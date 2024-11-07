@@ -16,9 +16,9 @@ tags:
 recommended: []
 ---
 
-It seems like most of the current use cases for LLMs have to do with summarization and RAG. Both involve an LLM answering questions, for a user, about a piece of text. Either "summarize the following..." or "anser question X based on Y documents."
+It seems like most of the current use cases for LLMs have to do with summarization and RAG. Both involve an LLM answering questions, for a user, about a piece of text. Either "summarize the following..." or "reference the following document...answer the following question...".
 
-I believe that by flipping that paradigm – using LLMs to generate questions for a user to answer – there would be a huge potential value unlock.
+By flipping that paradigm – using LLMs to generate questions for a user to answer – there would be a huge potential value unlock.
 
 
 ## Setting the Scene
@@ -94,11 +94,14 @@ Let's go over just a couple possible issues.
 
 Honestly, maybe. But 
 
+
 > Is this just going to be used to automate away my job?
 
+Again, maybe. 
 
 
-> Isn't that just Recall?
+> That kind of just sounds like just Microsoft Recall, right?
+
 
 
 ## Conclusion
