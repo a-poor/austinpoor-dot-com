@@ -5,7 +5,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 
 export default defineConfig({
-  output: "server",
+  output: "hybrid",
   site: "https://austinpoor.com/",
   prefetch: true,
   integrations: [
