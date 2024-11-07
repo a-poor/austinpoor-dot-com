@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/BaseLayout.astro";
 import SiteMeta from "@/components/SiteMeta.astro";
 import { Image } from "astro:assets";
+import { ViewTransitions } from "astro:transitions";
 
 const blogPosts = await getCollection("blog").then((ps) =>
   ps
@@ -40,6 +41,7 @@ const pageDescription =
     url="https://austinpoor.com/blog"
   />
   <link rel="canonical" href="https://austinpoor.com/blog" slot="head" />
+  <ViewTransitions slot="head" />
 
   <!-- Content -->
   <div class="max-w-2xl mx-auto mb-12">
@@ -86,10 +88,13 @@ const pageDescription =
               class="w-[200px] h-[200px] object-cover aspect-square rounded-md"
               decoding="async"
               loading={i < 3 ? "eager" : "lazy"}
+              transition:name={"blog-image-" + b.slug}
             />
             <div class="flex-grow text-center sm:text-left">
               <h2 class="text-2xl font-semibold tracking-tight">
-                {b.data.title}
+                <span transition:name={"blog-title-" + b.slug}>
+                  {b.data.title}
+                </span>
               </h2>
               <time
                 class="text-sm text-zinc-400"

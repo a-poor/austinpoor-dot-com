@@ -4,6 +4,7 @@ import { getCollection, getEntryBySlug } from "astro:content";
 import Layout from "@/layouts/BaseLayout.astro";
 import BlogMeta from "@/components/BlogMeta.astro";
 import "@/styles/blog.css";
+import { ViewTransitions } from "astro:transitions";
 
 export const prerender = true;
 
@@ -80,6 +81,7 @@ const recs = await Promise.all(
     rel="canonical"
     href={`https://austinpoor.com/blog/${entry.slug}`}
   />
+  <ViewTransitions slot="head" />
 
   <!-- Content -->
   <div
@@ -157,7 +159,9 @@ const recs = await Promise.all(
       <div>
         <div class="space-y-1 mb-6">
           <h1 class="text-4xl font-medium">
-            {entry.data.title}
+            <span transition:name={"blog-title-" + entry.slug}>
+              {entry.data.title}
+            </span>
           </h1>
           {
             entry.data.subtitle && (
@@ -191,6 +195,7 @@ const recs = await Promise.all(
               class="mx-auto mb-2 max-h-[500px] w-auto"
               decoding="async"
               loading="eager"
+              transition:name={"blog-image-" + entry.slug}
             />
             {
               entry.data.image.caption && entry.data.image.captionLink && (
