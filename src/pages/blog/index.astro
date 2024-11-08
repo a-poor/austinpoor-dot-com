@@ -26,10 +26,6 @@ function formatDate(d: Date): string {
 const pageTitle = "Blog | Austin Poor";
 const pageDescription =
   "Check out my recent blog posts and let me know what you think!";
-
-const allTags = Array.from(
-  new Set(blogPosts.map((p) => p.data.tags).flat())
-).toSorted();
 ---
 
 <Layout
