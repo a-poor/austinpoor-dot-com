@@ -1,7 +1,7 @@
 ---
 import Theme from "@/components/Theme.astro";
 
-export type Tab = "home" | "blog" | "projects" | "about";
+export type Tab = "home" | "blog" | "etc" | "about";
 
 interface Props {
   activeTab?: Tab;
@@ -27,14 +27,14 @@ const tabs: TabData[] = [
     href: "/blog",
   },
   {
-    key: "projects",
-    name: "Projects",
-    href: "/projects",
-  },
-  {
     key: "about",
     name: "About",
     href: "/about",
+  },
+  {
+    key: "etc",
+    name: "Etc.",
+    href: "/etc",
   },
 ];
 
@@ -42,7 +42,7 @@ const SHOW_THEME = false;
 ---
 
 <div
-  class="flex max-w-7xl mx-auto px-2 py-4 align-middle items-stretch space-x-1 sm:space-x-2 lg:space-x-4"
+  class="grid-cols-subgrid col-start-4 col-end-9 flex max-w-7xl mx-auto px-2 py-4 align-middle items-stretch space-x-1 sm:space-x-2 lg:space-x-4"
 >
   <a
     href="/"

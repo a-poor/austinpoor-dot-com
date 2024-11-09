@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/BaseLayout.astro";
+import SiteMeta from "@/components/SiteMeta.astro";
+import { Image } from "astro:assets";
+
+const pageTitle = "Etc. | Austin Poor";
+const pageDescription = "A few random projects, experiments, and more.";
+---
+
+<Layout activeTab="etc" pageTitle={pageTitle} pageDescription={pageDescription}>
+  <!-- Metadata -->
+  <SiteMeta
+    slot="head"
+    title={pageTitle}
+    description={pageDescription}
+    url="https://austinpoor.com/etc"
+  />
+  <link rel="canonical" href="https://austinpoor.com/etc" slot="head" />
+
+  <!-- Content -->
+  <div class="max-w-2xl mx-auto mb-12">
+    <h1 class="text-4xl sm:text-6xl font-bold text-center mb-4">Blog</h1>
+    <p class="text-base text-center">
+      Check out some blog posts I've written about various topics.
+    </p>
+    <p class="text-base text-center">
+      I don't post very often, but I try to make each post count.
+    </p>
+  </div>
+</Layout>

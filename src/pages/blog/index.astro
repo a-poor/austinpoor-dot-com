@@ -26,6 +26,14 @@ function formatDate(d: Date): string {
 const pageTitle = "Blog | Austin Poor";
 const pageDescription =
   "Check out my recent blog posts and let me know what you think!";
+
+const searchData = blogPosts.map((b) => ({
+  id: b.slug,
+  title: b.data.title,
+  subtitle: b.data.subtitle,
+  content: b.data.description,
+  tags: b.data.tags,
+}));
 ---
 
 <Layout
@@ -44,12 +52,12 @@ const pageDescription =
   <ViewTransitions slot="head" />
 
   <!-- Content -->
-  <div class="max-w-2xl mx-auto mb-12">
-    <h1 class="text-4xl sm:text-6xl font-bold text-center mb-4">Blog</h1>
-    <p class="text-base text-center">
+  <div class="max-w-4xl mx-auto mb-12 px-4">
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4">Blog</h1>
+    <p class="text-base">
       Check out some blog posts I've written about various topics.
     </p>
-    <p class="text-base text-center">
+    <p class="text-base">
       I don't post very often, but I try to make each post count.
     </p>
   </div>
