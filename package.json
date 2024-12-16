@@ -3,26 +3,32 @@
 	"type": "module",
 	"version": "0.1.0",
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"typegen": "astro sync",
-		"astro": "astro"
+		"build": "cross-env NODE_ENV=production react-router build",
+		"dev": "react-router dev",
+		"start": "cross-env NODE_ENV=production react-router-serve ./build/server/index.js",
+		"typecheck": "react-router typegen && tsc"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.4",
-		"@astrojs/cloudflare": "^11.2.0",
-		"@astrojs/rss": "^4.0.9",
-		"@astrojs/sitemap": "^3.2.1",
-		"@astrojs/tailwind": "^5.1.2",
-		"@astrojs/ts-plugin": "^1.10.4",
-		"astro": "^4.16.10",
-		"motion": "^10.16.4",
-		"tailwindcss": "^3.0.24",
-		"typescript": "^5.3.2"
+		"@react-router/fs-routes": "^7.0.2",
+		"@react-router/node": "^7.0.2",
+		"@react-router/serve": "^7.0.2",
+		"isbot": "^5.1.17",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-router": "^7.0.2"
 	},
 	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.13"
+		"@hiogawa/vite-node-miniflare": "^0.1.1",
+		"@react-router/dev": "^7.0.2",
+		"@types/node": "^20",
+		"@types/react": "^19.0.1",
+		"@types/react-dom": "^19.0.1",
+		"autoprefixer": "^10.4.20",
+		"cross-env": "^7.0.3",
+		"postcss": "^8.4.49",
+		"tailwindcss": "^3.4.16",
+		"typescript": "^5.7.2",
+		"vite": "^5.4.11",
+		"vite-tsconfig-paths": "^5.1.4"
 	}
 }
