@@ -1,9 +1,9 @@
-import type { Route } from "./+types/index";
+import type { Route } from "./+types/_index";
 
 export function meta({ }: Route.MetaArgs) {
     return [
-        { title: "New React Router App" },
-        { name: "description", content: "Welcome to React Router!" },
+        { title: "AustinPoor.com" },
+        { name: "description", content: "Welcome to AustinPoor.com!" },
     ];
 }
 
@@ -16,5 +16,5 @@ export default function Page({ loaderData }: Route.ComponentProps) {
 }
 
 function Welcome({ message }: { message?: string }) {
-    return <div>{message || "Hello World"}</div>;
+    return <div className="text-2xl font-red-500">{message || "Hello World"}</div>;
 }
