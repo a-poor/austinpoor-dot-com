@@ -4,6 +4,7 @@ import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import mdx from '@mdx-js/rollup';
 
 export default defineConfig(({ isSsrBuild }) => ({
     build: {
@@ -43,6 +44,7 @@ export default defineConfig(({ isSsrBuild }) => ({
                 options.compatibilityFlags = ["nodejs_compat"];
             },
         }),
+        mdx(),
         reactRouter(),
         tsconfigPaths(),
     ],
