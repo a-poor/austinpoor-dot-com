@@ -1,4 +1,5 @@
 import type { Route } from "./+types/_index";
+import { AppLayout } from "~/components/app-layout";
 
 export function meta({ }: Route.MetaArgs) {
   return [
@@ -13,8 +14,8 @@ export function loader({ context }: Route.LoaderArgs) {
 
 export default function Page({ loaderData }: Route.ComponentProps) {
   return (
-    <>
+    <AppLayout>
       <div className="text-2xl font-red-500">{loaderData.message || "Hello World"}</div>
-    </>
+    </AppLayout>
   );
 }
