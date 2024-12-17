@@ -1,9 +1,0 @@
-{
-  "editor.formatOnSave": true,
-  "[json]": {
-    "editor.tabSize": 2,
-  },
-  "[astro]": {
-    "editor.tabSize": 2,
-  }
-}
