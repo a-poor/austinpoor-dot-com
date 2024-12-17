@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: 'DepartureMono';
+    src: url(/fonts/DepartureMono-Regular.woff2) format(woff2),
+         url(/fonts/DepartureMono-Regular.woff) format(woff);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
 html,
 body {
     @apply bg-white dark:bg-gray-950;
