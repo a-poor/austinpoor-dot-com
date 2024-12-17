@@ -1,146 +1,77 @@
 import type { ReactNode } from 'react'
-import { Link } from 'react-router';
-import { Avatar } from '~/components/catalyst/avatar'
-import {
-    Dropdown,
-    DropdownButton,
-    DropdownDivider,
-    DropdownItem,
-    DropdownLabel,
-    DropdownMenu,
-} from '~/components/catalyst/dropdown'
+import { Link, useLocation } from 'react-router';
 import { Navbar, NavbarDivider, NavbarItem, NavbarLabel, NavbarSection, NavbarSpacer } from '~/components/catalyst/navbar'
 import { Sidebar, SidebarBody, SidebarHeader, SidebarItem, SidebarLabel, SidebarSection } from '~/components/catalyst/sidebar'
 import { StackedLayout } from '~/components/catalyst/stacked-layout'
 import {
-    ArrowRightStartOnRectangleIcon,
-    ChevronDownIcon,
-    Cog8ToothIcon,
-    LightBulbIcon,
-    PlusIcon,
-    ShieldCheckIcon,
-    UserIcon,
-} from '@heroicons/react/16/solid'
-import { InboxIcon, MagnifyingGlassIcon } from '@heroicons/react/20/solid'
-import { Cpu } from '@phosphor-icons/react/dist/ssr'
+  Mountains,
+  MagnifyingGlass,
+} from '@phosphor-icons/react/dist/ssr'
+// import { ThemePicker } from './theme-picker'
+
 
 const navItems = [
-    { label: 'Home', url: '/' },
-    { label: 'Events', url: '/events' },
-    { label: 'Orders', url: '/orders' },
-    { label: 'Broadcasts', url: '/broadcasts' },
-    { label: 'Settings', url: '/settings' },
+  { label: 'Home', url: '/' },
+  { label: 'Blog', url: '/blog' },
+  { label: 'Projects', url: '/projects' },
+  { label: 'About', url: '/about' },
 ]
 
-function TeamDropdownMenu() {
-    return (
-        <DropdownMenu className="min-w-80 lg:min-w-64" anchor="bottom start">
-            <DropdownItem href="/teams/1/settings">
-                <Cog8ToothIcon />
-                <DropdownLabel>Settings</DropdownLabel>
-            </DropdownItem>
-            <DropdownDivider />
-            <DropdownItem href="/teams/1">
-                <Avatar slot="icon" src="/tailwind-logo.svg" />
-                <DropdownLabel>Tailwind Labs</DropdownLabel>
-            </DropdownItem>
-            <DropdownItem href="/teams/2">
-                <Avatar slot="icon" initials="WC" className="bg-purple-500 text-white" />
-                <DropdownLabel>Workcation</DropdownLabel>
-            </DropdownItem>
-            <DropdownDivider />
-            <DropdownItem href="/teams/create">
-                <PlusIcon />
-                <DropdownLabel>New team&hellip;</DropdownLabel>
-            </DropdownItem>
-        </DropdownMenu>
-    )
-}
-
 export function AppLayout({ children }: { children: ReactNode }) {
-    return (
-        <StackedLayout
-          navbar={
-            <Navbar>
-              <NavbarItem as={Link} to="/" className="max-lg:hidden">
-                <Cpu size={28} />
-                <NavbarLabel>
-                  Austin Poor
-                </NavbarLabel>
+  const location = useLocation();
+  return (
+    <StackedLayout
+      navbar={
+        <Navbar>
+          <NavbarItem>
+            <Link to="/" className="max-lg:hidden flex items-center gap-2">
+              <Mountains size={26} />
+              <NavbarLabel className="text-lg font-medium">
+                Austin Poor
+              </NavbarLabel>
+            </Link>
+          </NavbarItem>
+          <NavbarDivider className="max-lg:hidden" />
+          <NavbarSection className="max-lg:hidden">
+            {navItems.map(({ label, url }) => (
+              <NavbarItem key={label} href={url} current={location.pathname === url}>
+                {label}
               </NavbarItem>
-              <NavbarDivider className="max-lg:hidden" />
-              <NavbarSection className="max-lg:hidden">
-                {navItems.map(({ label, url }) => (
-                  <NavbarItem key={label} href={url}>
-                    {label}
-                  </NavbarItem>
-                ))}
-              </NavbarSection>
-              <NavbarSpacer />
-              <NavbarSection>
-                  <NavbarItem href="/search" aria-label="Search">
-                      <MagnifyingGlassIcon />
-                  </NavbarItem>
-                  <NavbarItem href="/inbox" aria-label="Inbox">
-                      <InboxIcon />
-                  </NavbarItem>
-                  <Dropdown>
-                      <DropdownButton as={NavbarItem}>
-                          <Avatar src="/profile-photo.jpg" square />
-                      </DropdownButton>
-                      <DropdownMenu className="min-w-64" anchor="bottom end">
-                          <DropdownItem href="/my-profile">
-                              <UserIcon />
-                              <DropdownLabel>My profile</DropdownLabel>
-                          </DropdownItem>
-                          <DropdownItem href="/settings">
-                              <Cog8ToothIcon />
-                              <DropdownLabel>Settings</DropdownLabel>
-                          </DropdownItem>
-                          <DropdownDivider />
-                          <DropdownItem href="/privacy-policy">
-                              <ShieldCheckIcon />
-                              <DropdownLabel>Privacy policy</DropdownLabel>
-                          </DropdownItem>
-                          <DropdownItem href="/share-feedback">
-                              <LightBulbIcon />
-                              <DropdownLabel>Share feedback</DropdownLabel>
-                          </DropdownItem>
-                          <DropdownDivider />
-                          <DropdownItem href="/logout">
-                              <ArrowRightStartOnRectangleIcon />
-                              <DropdownLabel>Sign out</DropdownLabel>
-                          </DropdownItem>
-                      </DropdownMenu>
-                  </Dropdown>
-              </NavbarSection>
-            </Navbar>
-          }
-            sidebar={
-                <Sidebar>
-                    <SidebarHeader>
-                        <Dropdown>
-                            <DropdownButton as={SidebarItem} className="lg:mb-2.5">
-                                <Avatar src="/tailwind-logo.svg" />
-                                <SidebarLabel>Tailwind Labs</SidebarLabel>
-                                <ChevronDownIcon />
-                            </DropdownButton>
-                            <TeamDropdownMenu />
-                        </Dropdown>
-                    </SidebarHeader>
-                    <SidebarBody>
-                        <SidebarSection>
-                            {navItems.map(({ label, url }) => (
-                                <SidebarItem key={label} href={url}>
-                                    {label}
-                                </SidebarItem>
-                            ))}
-                        </SidebarSection>
-                    </SidebarBody>
-                </Sidebar>
-            }
-        >
-            {children}
-        </StackedLayout>
-    )
+            ))}
+          </NavbarSection>
+          <NavbarSpacer />
+          <NavbarSection>
+            <NavbarItem href="/search" aria-label="Search">
+              <MagnifyingGlass size={20} />
+            </NavbarItem>
+            {/* <NavbarItem></NavbarItem> */}
+            {/* <ThemePicker /> */}
+          </NavbarSection>
+        </Navbar>
+      }
+      sidebar={
+        <Sidebar>
+          <SidebarHeader>
+            <SidebarItem className="lg:mb-2.5">
+              <Link to="/" className="flex items-center gap-2">
+                <Mountains size={26} />
+                <SidebarLabel>Austin Poor</SidebarLabel>
+              </Link>
+            </SidebarItem>
+          </SidebarHeader>
+          <SidebarBody>
+            <SidebarSection>
+              {navItems.map(({ label, url }) => (
+                <SidebarItem key={label} href={url} current={location.pathname === url}>
+                  {label}
+                </SidebarItem>
+              ))}
+            </SidebarSection>
+          </SidebarBody>
+        </Sidebar>
+      }
+    >
+      {children}
+    </StackedLayout>
+  )
 }

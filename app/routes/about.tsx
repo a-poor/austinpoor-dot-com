@@ -1,9 +1,9 @@
-import type { Route } from "./+types/_index";
+import type { Route } from "./+types/about";
 
 export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "AustinPoor.com" },
-    { name: "description", content: "Welcome to AustinPoor.com!" },
+    { title: "About Austin" },
+    { name: "description", content: "Learn more about Austin" },
   ];
 }
 
