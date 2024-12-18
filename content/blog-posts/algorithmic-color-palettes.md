@@ -1,27 +1,24 @@
-export const metadata = {
-  isDraft: false,
-  title: "Algorithmic Color Palettes",
-  subtitle: "Using Machine Learning to Generate Color Palettes from Images",
-  description: "Using Unsupervised Machine Learning algorithms to generate color palettes from film stills.",
-  image: {
-    src: "/images/color-palette-example.webp",
-    alt: "A photo of mountains with a color palette generated from the image.",
-    caption: "Photo by Trey Ratcliff (Source) with my generated color palette.",
-    captionLink: "https://flickr.com/photos/stuckincustoms/8837173497"
-  },
-  publishDate: "2020-10-13",
-  tags: [
-    "data-science",
-    "machine-learning",
-    "clustering",
-    "color-theory",
-    "image-processing"
-  ],
-  recommended: [
-    "predict-spotify-skips",
-    "big-query-data-augmentation"
-  ]
-};
+---
+isDraft: false
+title: "Algorithmic Color Palettes"
+subtitle: "Using Machine Learning to Generate Color Palettes from Images"
+description: "Using Unsupervised Machine Learning algorithms to generate color palettes from film stills."
+image:
+  src: "/images/color-palette-example.webp"
+  alt: "A photo of mountains with a color palette generated from the image."
+  caption: "Photo by Trey Ratcliff (Source) with my generated color palette."
+  captionLink: "https://flickr.com/photos/stuckincustoms/8837173497"
+publishDate: "2020-10-13"
+tags:
+  - "data-science"
+  - "machine-learning"
+  - "clustering"
+  - "color-theory"
+  - "image-processing"
+recommended:
+  - "predict-spotify-skips"
+  - "big-query-data-augmentation"
+---
 
 I was recently working on a project in which I wanted to be able to compare the look and feel of images which led me to look for a way to create color palettes using machine learning.
 

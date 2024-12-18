@@ -1,27 +1,24 @@
-export const metadata = {
-  isDraft: false,
-  title: "Quickly Load CSVs into PostgreSQL Using Python and Pandas",
-  subtitle: "Use Pandas to quickly create and populate a Postgres database",
-  description: "Learn a fast way to use Python and Pandas to import CSV data into a Postgres database. Let Pandas infer data types and create the SQL schema for you.",
-  image: {
-    src: "/images/csv-to-postgres.webp",
-    alt: "A flowchart from a CSV file icon to the Pandas library icon to a Postgres database icon.",
-    caption: "Use Pandas to quickly load your CSV data into a Postgres database"
-  },
-  publishDate: "2020-02-13",
-  // updateDate: "2023-02-16",
-  tags: [
-    "csv",
-    "sql",
-    "postgres",
-    "pandas",
-    "data-science"
-  ],
-  recommended: [
-    "big-query-data-augmentation",
-    "predict-spotify-skips"
-  ]
-};
+---
+isDraft: false
+title: "Quickly Load CSVs into PostgreSQL Using Python and Pandas"
+subtitle: "Use Pandas to quickly create and populate a Postgres database"
+description: "Learn a fast way to use Python and Pandas to import CSV data into a Postgres database. Let Pandas infer data types and create the SQL schema for you."
+image:
+  src: "/images/csv-to-postgres.webp"
+  alt: "A flowchart from a CSV file icon to the Pandas library icon to a Postgres database icon."
+  caption: "Use Pandas to quickly load your CSV data into a Postgres database"
+publishDate: "2020-02-13"
+# updateDate: "2023-02-16"
+tags:
+  - "csv"
+  - "sql"
+  - "postgres"
+  - "pandas"
+  - "data-science"
+recommended:
+  - "big-query-data-augmentation"
+  - "predict-spotify-skips"
+---
 
 Sometimes it can be kind of a pain to deal with copying CSV data into a Postgres database — especially if you don't want to write out a long schema. Why not let Pandas do all that legwork for you? I'll walk you through a quick example using the Iris dataset (here's a [link](https://archive.ics.uci.edu/ml/datasets/Iris) to the data).
 

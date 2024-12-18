@@ -1,28 +1,25 @@
-export const metadata = {
-  isDraft: false,
-  title: "Predicting Spotify Track Skips",
-  subtitle: "Working on the Spotify Sequential Skip Prediction Challenge",
-  description: "Metis Data Science Bootcamp project using machine learning to predict Spotify user track skips for the \"Spotify Sequential Skip Prediction Challenge\".",
-  image: {
-    src: "/images/spotify-skip-cover.webp",
-    alt: "Screenshots from the Spotify desktop app.",
-    caption: "Screenshots from the Spotify desktop app"
-  },
-  publishDate: "2020-02-18",
-  // updateDate: "2023-02-16",
-  tags: [
-    "spotify",
-    "data-science",
-    "python",
-    "machine-learning",
-    "bootcamp"
-  ],
-  recommended: [
-    "algorithmic-color-palettes",
-    "big-query-data-augmentation",
-    "serve-ml-with-grpc"
-  ]
-};
+---
+isDraft: false
+title: "Predicting Spotify Track Skips"
+subtitle: "Working on the Spotify Sequential Skip Prediction Challenge"
+description: "Metis Data Science Bootcamp project using machine learning to predict Spotify user track skips for the \"Spotify Sequential Skip Prediction Challenge\"."
+image:
+  src: "/images/spotify-skip-cover.webp"
+  alt: "Screenshots from the Spotify desktop app."
+  caption: "Screenshots from the Spotify desktop app"
+publishDate: "2020-02-18"
+# updateDate: "2023-02-16"
+tags:
+  - "spotify"
+  - "data-science"
+  - "python"
+  - "machine-learning"
+  - "bootcamp"
+recommended:
+  - "algorithmic-color-palettes"
+  - "big-query-data-augmentation"
+  - "serve-ml-with-grpc"
+---
 
 ## Introduction
 

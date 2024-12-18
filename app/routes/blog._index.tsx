@@ -17,6 +17,7 @@ export function meta(_: Route.MetaArgs) {
 }
 
 export default function Page() {
+  const sortedBlogPosts = Object.values(blogPosts).sort((a, b) => new Date(b.front.publishDate).getTime() - new Date(a.front.publishDate).getTime());
   return (
     <>
       <div className="pb-8">
@@ -29,19 +30,19 @@ export default function Page() {
         <div className="py-1 border-b w-14" />
       </div>
 
-      {Object.keys(blogPosts).map(k => (
-        <p key={k}>{k}</p>
-      ))}
-
       <ItemList>
-        <LinkItem to="#">
-          <ItemDate date="2024-12-12" />
-          <ItemHeader>
-          </ItemHeader>
-          <ItemDescription>
-          </ItemDescription>
-          <ItemTags tags={[]} />
-        </LinkItem>
+        {sortedBlogPosts.map((p) => (
+          <LinkItem to={`/blog/${p.slug}`} key={p.slug}>
+            <ItemDate date={p.front.publishDate} />
+            <ItemHeader>
+              {p.front.title}
+            </ItemHeader>
+            <ItemDescription>
+              {p.front.description}
+            </ItemDescription>
+            <ItemTags tags={p.front.tags} />
+          </LinkItem>
+        ))}
       </ItemList>
     </>
   );

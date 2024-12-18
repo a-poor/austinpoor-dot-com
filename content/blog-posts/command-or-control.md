@@ -1,27 +1,24 @@
-export const metadata = {
-  isDraft: false,
-  title: "Command or Control",
-  subtitle: "Knowing What Modifier Key to Put in Your Search Bar",
-  description: "Should your hotkeys use \"Cmd\" or \"Ctrl\"? How can you tell if your user is on a Mac or not? This blog post walks through multiple approaches to OS detection in JavaScript.",
-  image: {
-    src: "/images/command-and-control-search-samples.png",
-    alt: "Screenshots from the TailwindCSS and TanStack Query doc sites showing the hotkey \"Cmd + K\" used for opening search.",
-    caption: "Screenshots from the TailwindCSS and TanStack Query doc sites showing the hotkeys used for opening search."
-  },
-  publishDate: "2023-09-10",
-  tags: [
-    "javascript",
-    "hotkey",
-    "user-agent",
-    "javascript-framework",
-    "browser-detection"
-  ],
-  recommended: [
-    "js-in-rs",
-    "astro-rewrite",
-    "apoor-dot-dev"
-  ]
-};
+---
+isDraft: false
+title: "Command or Control"
+subtitle: "Knowing What Modifier Key to Put in Your Search Bar"
+description: "Should your hotkeys use \"Cmd\" or \"Ctrl\"? How can you tell if your user is on a Mac or not? This blog post walks through multiple approaches to OS detection in JavaScript."
+image:
+  src: "/images/command-and-control-search-samples.png"
+  alt: "Screenshots from the TailwindCSS and TanStack Query doc sites showing the hotkey \"Cmd + K\" used for opening search."
+  caption: "Screenshots from the TailwindCSS and TanStack Query doc sites showing the hotkeys used for opening search."
+publishDate: "2023-09-10"
+tags:
+  - "javascript"
+  - "hotkey"
+  - "user-agent"
+  - "javascript-framework"
+  - "browser-detection"
+recommended:
+  - "js-in-rs"
+  - "astro-rewrite"
+  - "apoor-dot-dev"
+---
 
 You've just built a cool new site and now you want to add search. Maybe GPT-powered vector search, maybe just Algoila. You put in a search button and you want the user to be able to open it with the hotkey `Cmd + K`. But should the hotkey be `Cmd + K` or `Ctrl + K`?
 

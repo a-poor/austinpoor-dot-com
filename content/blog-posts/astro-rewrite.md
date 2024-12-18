@@ -1,26 +1,23 @@
-export const metadata = {
-  isDraft: false,
-  title: "Re-Re-Rewriting My Site in Astro",
-  subtitle: "Using the Astro Framework to Make a Simpler, Faster Site",
-  description: "Recapping the process of rewriting my personal site and blog using the new Astro framework.",
-  image: {
-    // src: "/images/apdc-site-screenshot.webp",
-    alt: "A screenshot of the home page of my personal site, rewritten in Astro.",
-    caption: "A screenshot of the home page of my personal site, rewritten in Astro."
-  },
-  publishDate: "2023-03-05",
-  tags: [
-    "blog",
-    "javscript",
-    "astro",
-    "framework",
-    "frontend"
-  ],
-  recommended: [
-    "apoor-dot-dev",
-    "js-in-rs"
-  ]
-};
+---
+isDraft: false
+title: Re-Re-Rewriting My Site in Astro
+subtitle: Using the Astro Framework to Make a Simpler, Faster Site
+description: Recapping the process of rewriting my personal site and blog using the new Astro framework.
+image:
+  # src: /images/apdc-site-screenshot.webp
+  alt: A screenshot of the home page of my personal site, rewritten in Astro.
+  caption: A screenshot of the home page of my personal site, rewritten in Astro.
+publishDate: 2023-03-05
+tags:
+  - blog
+  - javscript
+  - astro
+  - framework
+  - frontend
+recommended:
+  - apoor-dot-dev
+  - js-in-rs
+---
 
 Astro has been generating a lot of buzz recently, as a web framework that let's you writing fast websites that ship minimal JavaScript (and uses something called an [Island Architecture](https://docs.astro.build/en/concepts/islands/)) while still allowing you to selectively use familiar UI tools like React, and with first class support for Markdown. 
 
