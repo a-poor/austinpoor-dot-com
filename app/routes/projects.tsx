@@ -1,5 +1,13 @@
 import type { ReactNode } from "react";
 import type { Route } from "./+types/projects";
+import {
+  ItemList,
+  LinkItem,
+  ItemDate,
+  ItemHeader,
+  ItemDescription,
+  ItemTags,
+} from "~/components/item-list";
 
 export function meta(_: Route.MetaArgs) {
   return [
@@ -14,10 +22,31 @@ export default function Page() {
       <h1 className="text-4xl font-red-500">
         Projects
       </h1>
-      <p>
+      <p className="pb-8 text-base">
+        Some projects I've worked on and links to learn more about them.
       </p>
-      <div>
-      </div>
+      <ItemList>
+        <LinkItem to="https://github.com/a-poor/js-in-rs">
+          <ItemDate date="2024-09-12" />
+          <ItemHeader>
+            Running JavaScript in Rust
+          </ItemHeader>
+          <ItemDescription>
+            A demo of running JavaScript in Rust.
+          </ItemDescription>
+          <ItemTags tags={["rust", "javascript", "wasm"]} />
+        </LinkItem>
+        <LinkItem to="https://github.com/a-poor/js-in-rs">
+          <ItemDate date="2024-09-12" />
+          <ItemHeader>
+            Running JavaScript in Rust
+          </ItemHeader>
+          <ItemDescription>
+            A demo of running JavaScript in Rust.
+          </ItemDescription>
+          <ItemTags tags={["rust", "javascript", "wasm"]} />
+        </LinkItem>
+      </ItemList>
     </>
   );
 }
