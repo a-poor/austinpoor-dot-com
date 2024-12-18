@@ -25,53 +25,56 @@ export default function Page() {
       <p className="pb-8 text-base">
         Some projects I've worked on and links to learn more about them.
       </p>
+
       <ItemList>
-        <LinkItem to="https://github.com/a-poor/js-in-rs">
-          <ItemDate date="2024-09-12" />
+        <LinkItem to="https://github.com/a-poor/watercooler">
+          <ItemDate date="2023-08-29" />
           <ItemHeader>
-            Running JavaScript in Rust
+            WaterCooler
           </ItemHeader>
           <ItemDescription>
-            A demo of running JavaScript in Rust.
+            A desktop app for chatting with ChatGPT using the OpenAI API
+            &ndash; built with Tauri, Rust, React and Mantine.
           </ItemDescription>
-          <ItemTags tags={["rust", "javascript", "wasm"]} />
+          <ItemTags tags={["rust", "javascript", "chatgpt", "tauri", "react"]} />
         </LinkItem>
         <LinkItem to="https://github.com/a-poor/js-in-rs">
-          <ItemDate date="2024-09-12" />
+          <ItemDate date="2023-05-04" />
           <ItemHeader>
             Running JavaScript in Rust
           </ItemHeader>
           <ItemDescription>
-            A demo of running JavaScript in Rust.
+            A demo of embedding a JavaScript runtime in Rust using Deno.
           </ItemDescription>
-          <ItemTags tags={["rust", "javascript", "wasm"]} />
+          <ItemTags tags={["rust", "javascript", "deno"]} />
+        </LinkItem>
+        <LinkItem to="https://github.com/a-poor/openai-stream-rust-demo">
+          <ItemDate date="2023-05-26" />
+          <ItemHeader>
+            Streaming ChatGPT API Responses in Rust
+          </ItemHeader>
+          <ItemDescription>
+            A demo of streaming ChatGPT API responses in Rust.
+          </ItemDescription>
+          <ItemTags tags={["rust", "ai", "chatgpt", "async"]} />
+        </LinkItem>
+        <LinkItem to="https://github.com/a-poor/color-palettes">
+          <ItemDate date="2021-01-27" />
+          <ItemHeader>
+            Generating Color Palettes with AI
+          </ItemHeader>
+          <ItemDescription>
+            Using traditional machine learning techniques &ndash; like k-means
+            and agglomerative clustering &ndash; to generate color palettes
+            from film stills.
+          </ItemDescription>
+          <ItemTags tags={["ai", "clustering", "python"]} />
         </LinkItem>
       </ItemList>
     </>
   );
 }
 
-function ProjectCard() {
-  return (
-    <></>
-  );
-}
-
-const ProjectTitle = ({ children }: { children: ReactNode }) => (
-  <h2 className="text-2xl font-bold">
-    {children}
-  </h2>
-);
-
-const ProjectDescription = ({ children }: { children: ReactNode }) => (
-  <p className="">
-    {children}
-  </p>
-);
-
-const ProjectTags = ({ tags }: { tags: string[] }) => (
-  <p className="">
-    {tags}
-  </p>
-);
-
+// https://github.com/a-poor/flask-celery-ml
+// https://github.com/a-poor/vhttp
+// https://github.com/a-poor/apoor-ssh
