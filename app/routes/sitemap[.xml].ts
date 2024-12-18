@@ -8,10 +8,11 @@ const ROUTES = [
 ];
 
 export function loader() {
+  const items = ROUTES.map(r => "  <url><loc>" + BASE_URL + r + "</loc></url>");
   const data = `
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${ROUTES.map(r => "  <url><loc>" + BASE_URL + r + "</loc></url>").join('\n')}
+${items.join('\n')}
 </urlset>
     `.trim();
   return new Response(data, {

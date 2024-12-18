@@ -1,20 +1,48 @@
+import type { ReactNode } from "react";
 import type { Route } from "./+types/projects";
 
-export function meta({ }: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [
-    { title: "AustinPoor.com" },
-    { name: "description", content: "Welcome to AustinPoor.com!" },
+    { title: "Projects" },
+    { name: "description", content: "Check out Austin's projects!" },
   ];
 }
 
-export function loader({ context }: Route.LoaderArgs) {
-  return { message: context.VALUE_FROM_CLOUDFLARE };
-}
-
-export default function Page({ loaderData }: Route.ComponentProps) {
+export default function Page() {
   return (
-    <div className="text-2xl font-red-500">
-      {loaderData.message || "Hello World"}
-    </div>
+    <>
+      <h1 className="text-4xl font-red-500">
+        Projects
+      </h1>
+      <p>
+      </p>
+      <div>
+      </div>
+    </>
   );
 }
+
+function ProjectCard() {
+  return (
+    <></>
+  );
+}
+
+const ProjectTitle = ({ children }: { children: ReactNode }) => (
+  <h2 className="text-2xl font-bold">
+    {children}
+  </h2>
+);
+
+const ProjectDescription = ({ children }: { children: ReactNode }) => (
+  <p className="">
+    {children}
+  </p>
+);
+
+const ProjectTags = ({ tags }: { tags: string[] }) => (
+  <p className="">
+    {tags}
+  </p>
+);
+

@@ -1,14 +1,10 @@
 import type { ReactNode } from 'react'
 import { Link, useLocation } from 'react-router';
+import { Mountains, MagnifyingGlass } from '@phosphor-icons/react/dist/ssr'
 import { Navbar, NavbarDivider, NavbarItem, NavbarLabel, NavbarSection, NavbarSpacer } from '~/components/catalyst/navbar'
 import { Sidebar, SidebarBody, SidebarHeader, SidebarItem, SidebarLabel, SidebarSection } from '~/components/catalyst/sidebar'
 import { StackedLayout } from '~/components/catalyst/stacked-layout'
-import {
-  Mountains,
-  MagnifyingGlass,
-} from '@phosphor-icons/react/dist/ssr'
-// import { ThemePicker } from './theme-picker'
-
+import { Footer } from '~/components/footer'
 
 const navItems = [
   { label: 'Home', url: '/' },
@@ -20,58 +16,59 @@ const navItems = [
 export function AppLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
   return (
-    <StackedLayout
-      navbar={
-        <Navbar>
-          <NavbarItem>
-            <Link to="/" className="max-lg:hidden flex items-center gap-2">
-              <Mountains size={26} />
-              <NavbarLabel className="text-lg font-medium">
-                Austin Poor
-              </NavbarLabel>
-            </Link>
-          </NavbarItem>
-          <NavbarDivider className="max-lg:hidden" />
-          <NavbarSection className="max-lg:hidden">
-            {navItems.map(({ label, url }) => (
-              <NavbarItem key={label} href={url} current={location.pathname === url}>
-                {label}
-              </NavbarItem>
-            ))}
-          </NavbarSection>
-          <NavbarSpacer />
-          <NavbarSection>
-            <NavbarItem href="/search" aria-label="Search">
-              <MagnifyingGlass size={20} />
-            </NavbarItem>
-            {/* <NavbarItem></NavbarItem> */}
-            {/* <ThemePicker /> */}
-          </NavbarSection>
-        </Navbar>
-      }
-      sidebar={
-        <Sidebar>
-          <SidebarHeader>
-            <SidebarItem className="lg:mb-2.5">
-              <Link to="/" className="flex items-center gap-2">
+    <>
+      <StackedLayout
+        navbar={
+          <Navbar>
+            <NavbarItem>
+              <Link to="/" className="max-lg:hidden flex items-center gap-2">
                 <Mountains size={26} />
-                <SidebarLabel>Austin Poor</SidebarLabel>
+                <NavbarLabel className="text-lg font-medium">
+                  AustinPoor.com
+                </NavbarLabel>
               </Link>
-            </SidebarItem>
-          </SidebarHeader>
-          <SidebarBody>
-            <SidebarSection>
+            </NavbarItem>
+            <NavbarDivider className="max-lg:hidden" />
+            <NavbarSection className="max-lg:hidden">
               {navItems.map(({ label, url }) => (
-                <SidebarItem key={label} href={url} current={location.pathname === url}>
+                <NavbarItem key={label} href={url} current={location.pathname === url}>
                   {label}
-                </SidebarItem>
+                </NavbarItem>
               ))}
-            </SidebarSection>
-          </SidebarBody>
-        </Sidebar>
-      }
-    >
-      {children}
-    </StackedLayout>
+            </NavbarSection>
+            <NavbarSpacer />
+            <NavbarSection>
+              <NavbarItem href="/search" aria-label="Search">
+                <MagnifyingGlass size={20} />
+              </NavbarItem>
+            </NavbarSection>
+          </Navbar>
+        }
+        sidebar={
+          <Sidebar>
+            <SidebarHeader>
+              <SidebarItem className="lg:mb-2.5">
+                <Link to="/" className="flex items-center gap-2">
+                  <Mountains size={26} />
+                  <SidebarLabel>Austin Poor</SidebarLabel>
+                </Link>
+              </SidebarItem>
+            </SidebarHeader>
+            <SidebarBody>
+              <SidebarSection>
+                {navItems.map(({ label, url }) => (
+                  <SidebarItem key={label} href={url} current={location.pathname === url}>
+                    {label}
+                  </SidebarItem>
+                ))}
+              </SidebarSection>
+            </SidebarBody>
+          </Sidebar>
+        }
+      >
+        {children}
+      </StackedLayout>
+      <Footer />
+    </>
   )
 }

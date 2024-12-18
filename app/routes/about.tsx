@@ -1,20 +1,19 @@
 import type { Route } from "./+types/about";
+import { Footer } from "~/components/footer";
 
-export function meta({ }: Route.MetaArgs) {
+export function meta(_: Route.MetaArgs) {
   return [
     { title: "About Austin" },
     { name: "description", content: "Learn more about Austin" },
   ];
 }
 
-export function loader({ context }: Route.LoaderArgs) {
-  return { message: context.VALUE_FROM_CLOUDFLARE };
-}
-
-export default function Page({ loaderData }: Route.ComponentProps) {
+export default function Page() {
   return (
-    <div className="text-2xl font-red-500">
-      {loaderData.message || "Hello World"}
-    </div>
+    <>
+      <h1 className="text-4xl font-red-500">
+        About Austin
+      </h1>
+    </>
   );
 }
