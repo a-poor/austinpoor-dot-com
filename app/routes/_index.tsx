@@ -1,6 +1,7 @@
 import type { Route } from "./+types/_index";
 import { Link } from "react-router";
 import { GithubLogo, LinkedinLogo, Butterfly, YoutubeLogo } from '@phosphor-icons/react';
+import { useRouteLoaderData } from "react-router";
 
 
 export function meta(_: Route.MetaArgs) {
@@ -11,6 +12,7 @@ export function meta(_: Route.MetaArgs) {
 }
 
 export default function Page() {
+  const data = useRouteLoaderData("data.theme");
   return (
     <>
       <div>
@@ -42,7 +44,9 @@ export default function Page() {
           </Link>
         </div>
       </div>
-      <div></div>
+      <div>
+        Theme: {JSON.stringify(data, null, 2)}
+      </div>
     </>
   );
 }
