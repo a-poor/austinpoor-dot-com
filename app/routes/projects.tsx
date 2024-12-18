@@ -1,4 +1,3 @@
-import type { ReactNode } from "react";
 import type { Route } from "./+types/projects";
 import {
   ItemList,
@@ -11,7 +10,7 @@ import {
 
 export function meta(_: Route.MetaArgs) {
   return [
-    { title: "Projects" },
+    { title: "Projects | AustinPoor.com" },
     { name: "description", content: "Check out Austin's projects!" },
   ];
 }

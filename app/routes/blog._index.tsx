@@ -11,7 +11,7 @@ import blogPosts from 'virtual:load-blog-posts';
 
 export function meta(_: Route.MetaArgs) {
   return [
-    { title: "Austin's Blog" },
+    { title: "Blog | AustinPoor.com" },
     { name: "description", content: "Welcome to Austin's Blog!" },
   ];
 }
@@ -25,7 +25,7 @@ export default function Page() {
           Blog
         </h1>
         <p className="pb-2 text-base">
-          Some blog posts, articles, and other things I've written.
+          Some blog posts, notes, and other things I've written.
         </p>
         <div className="py-1 border-b w-14" />
       </div>

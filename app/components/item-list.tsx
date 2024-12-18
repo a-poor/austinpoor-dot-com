@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import type { ReactNode } from "react";
 import { Link } from "react-router";
 import moment from "moment";
-import { Badge } from "~/components/catalyst/badge";
+import { Badge, BadgeButton } from "~/components/catalyst/badge";
 
 
 export const ItemHeader = ({ children }: { children?: ReactNode }) => (
@@ -41,11 +41,29 @@ export const ItemDate = ({ date }: { date: string | Date }) => {
   );
 }
 
-// export const Item = ({ children }: { children: ReactNode }) => (
-//   <div className="">
-//     {children}
-//   </div>
-// );
+export const ItemReadTime = ({ readTime }: { readTime: string }) => (
+  <div className="text-sm text-gray-700 dark:text-gray-300">
+    {readTime}
+  </div>
+);
+
+export const ItemLinkTag = ({ href, children }: { href: string, children: ReactNode }) => (
+  <BadgeButton href={href} className="text-sm text-gray-700 dark:text-gray-300">
+    {children}
+  </BadgeButton>
+);
+
+export const ItemLinkTagList = ({ children }: { children: ReactNode }) => (
+  <div className="flex flex-wrap gap-2 py-2">
+    {children}
+  </div>
+);
+
+export const Item = ({ children }: { children: ReactNode }) => (
+  <div className="">
+    {children}
+  </div>
+);
 
 export const LinkItem = ({ to, children }: { to: string, children?: ReactNode }) => (
   <Link to={to} className="group py-2">

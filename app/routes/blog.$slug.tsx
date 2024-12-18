@@ -1,14 +1,46 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import moment from "moment";
-import { Link } from "react-router";
+import { data, Link, redirect, useLoaderData } from "react-router";
 import type { Route } from "./+types/blog.$slug";
 import blogPosts from 'virtual:load-blog-posts';
 import { Badge } from "~/components/catalyst/badge";
+import { BlogPostMeta } from "~/components/structured-meta";
 
 
-export default function Page({ params }: Route.ComponentProps) {
+export function meta({ params }: Route.ComponentProps) {
+  if (!params.slug) {
+    return;
+  }
   const post = blogPosts[params.slug];
-  const pd = useMemo(() => post.front.publishDate ? moment(post.front.publishDate) : null, [post.front.publishDate]);
+  if (!post) {
+    return;
+  }
+  return [
+    { title: post.front?.title && `${post.front.title} | AustinPoor.com` },
+    { name: "description", content: post.front?.description },
+  ];
+}
+
+export function loader({ params }: Route.LoaderArgs) {
+  if (!params.slug || !blogPosts[params.slug]) {
+    throw data("Not Found", { status: 404 });
+  }
+  return blogPosts[params.slug] as {
+    slug: string;
+    front: Record<string, any>;
+    html: string;
+    readTime: string;
+  };
+}
+
+export default function Page() {
+  const post = useLoaderData<typeof loader>();
+  const pd = useMemo(() => post?.front?.publishDate ? moment(post.front.publishDate) : null, [post?.front?.publishDate]);
+  useEffect(() => {
+    if (!post) {
+      redirect("/blog");
+    }
+  }, [post]);
   return (
     <>
       <article className="mx-auto prose dark:prose-invert lg:prose-xl">
@@ -61,6 +93,15 @@ export default function Page({ params }: Route.ComponentProps) {
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
+      <BlogPostMeta meta={{
+        headline: post?.front?.title,
+        image: post?.front?.image?.src,
+        datePublished: post?.front?.publishDate,
+        author: {
+          name: "Austin Poor",
+          url: "/about",
+        },
+      }} />
     </>
   );
 }

@@ -1,9 +1,8 @@
 import type { Route } from "./+types/about";
-import { Footer } from "~/components/footer";
 
 export function meta(_: Route.MetaArgs) {
   return [
-    { title: "About Austin" },
+    { title: "About Me | AustinPoor.com" },
     { name: "description", content: "Learn more about Austin" },
   ];
 }

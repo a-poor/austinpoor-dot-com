@@ -2,7 +2,7 @@ import type { Route } from "./+types/search";
 
 export function meta(_: Route.MetaArgs) {
   return [
-    { title: "Search" },
+    { title: "Search | AustinPoor.com" },
     { name: "description", content: "Search for anything on AustinPoor.com" },
   ];
 }
