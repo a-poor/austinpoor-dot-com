@@ -7,6 +7,7 @@ import {
   ItemDescription,
   ItemTags,
 } from "~/components/item-list";
+import blogPosts from 'virtual:load-blog-posts';
 
 export function meta(_: Route.MetaArgs) {
   return [
@@ -27,6 +28,10 @@ export default function Page() {
         </p>
         <div className="py-1 border-b w-14" />
       </div>
+
+      {Object.keys(blogPosts).map(k => (
+        <p key={k}>{k}</p>
+      ))}
 
       <ItemList>
         <LinkItem to="#">
