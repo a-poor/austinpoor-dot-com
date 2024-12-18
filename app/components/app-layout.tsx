@@ -31,7 +31,7 @@ export function AppLayout({ children }: { children: ReactNode }) {
             <NavbarDivider className="max-lg:hidden" />
             <NavbarSection className="max-lg:hidden">
               {navItems.map(({ label, url }) => (
-                <NavbarItem key={label} href={url} current={location.pathname === url}>
+                <NavbarItem key={label} href={url} current={location.pathname === url || (url !== '/' && location.pathname.startsWith(url))}>
                   {label}
                 </NavbarItem>
               ))}

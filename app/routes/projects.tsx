@@ -119,14 +119,6 @@ export default function Page() {
           <ItemTags tags={["rust", "ai", "chatgpt", "async"]} />
         </LinkItem>
 
-        <LinkItem to="https://github.com/a-poor/flask-celery-ml">
-          <ItemDate date="2020-01-01" />
-          <ItemHeader>
-          </ItemHeader>
-          <ItemDescription>
-          </ItemDescription>
-          <ItemTags tags={[]} />
-        </LinkItem>
         {/*<LinkItem to="https://github.com/a-poor/red-tape">
           <ItemDate date="2020-01-01" />
           <ItemHeader>

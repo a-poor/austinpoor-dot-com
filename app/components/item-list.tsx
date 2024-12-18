@@ -5,13 +5,13 @@ import moment from "moment";
 import { Badge } from "~/components/catalyst/badge";
 
 
-export const ItemHeader = ({ children }: { children: ReactNode }) => (
+export const ItemHeader = ({ children }: { children?: ReactNode }) => (
   <h2 className="text-2xl font-bold group-hover:underline">
     {children}
   </h2>
 );
 
-export const ItemDescription = ({ children }: { children: ReactNode }) => (
+export const ItemDescription = ({ children }: { children?: ReactNode }) => (
   <p className="text-base text-gray-700 dark:text-gray-300">
     {children}
   </p>
@@ -47,7 +47,7 @@ export const ItemDate = ({ date }: { date: string | Date }) => {
 //   </div>
 // );
 
-export const LinkItem = ({ to, children }: { to: string, children: ReactNode }) => (
+export const LinkItem = ({ to, children }: { to: string, children?: ReactNode }) => (
   <Link to={to} className="group py-2">
     {children}
   </Link>
