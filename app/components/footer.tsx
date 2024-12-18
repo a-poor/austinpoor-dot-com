@@ -1,9 +1,9 @@
-import { TextLink } from "~/components/catalyst/text";
+import { Link } from 'react-router';
 
 export function Footer() {
   return (
     <footer className="py-8">
-      <div className="text-sm flex flex-row gap-4 items-center justify-center">
+      <div className="text-sm text-gray-500 flex flex-row gap-4 items-center justify-center">
         <FooterLink href="/github">
           GitHub
         </FooterLink>
@@ -29,19 +29,18 @@ export function Footer() {
 
 export function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <TextLink
-      href={href}
+    <Link
+      to={href}
       className="
         text-gray-500
-        dark:text-gray-500 
         underline
         decoration-gray-500/50
-        data-[hover]:decoration-gray-950
+        hover:decoration-gray-950
         dark:decoration-gray-500/50
-        dark:data-[hover]:decoration-gray-200
+        dark:hover:decoration-gray-200/50
       "
     >
       {children}
-    </TextLink>
+    </Link>
   );
 }

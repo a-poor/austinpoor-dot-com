@@ -19,24 +19,27 @@ export function meta(_: Route.MetaArgs) {
 export default function Page() {
   return (
     <>
-      <h1 className="text-4xl font-red-500">
-        Projects
-      </h1>
-      <p className="pb-8 text-base">
-        Some projects I've worked on and links to learn more about them.
-      </p>
+      <div className="pb-8">
+        <h1 className="pb-4 text-4xl">
+          Projects
+        </h1>
+        <p className="pb-2 text-base">
+          Some projects I've worked on and links to learn more about them.
+        </p>
+        <div className="py-1 border-b w-14" />
+      </div>
 
       <ItemList>
-        <LinkItem to="https://github.com/a-poor/apoor-dot-dev">
-          <ItemDate date="2023-11-30" />
+        <LinkItem to="https://github.com/a-poor/ssh-austinpoor-com">
+          <ItemDate date="2024-05-23" />
           <ItemHeader>
-            apoor.dev
+            ssh.austinpoor.com
           </ItemHeader>
           <ItemDescription>
-            A custom URL-shortener built with JavaScript and Hono,
-            and hosted on Deno Deploy.
+            An TUI SSH server with some info about me, built with Go,
+            Wish, and Bubble Tea. Check it out at <Code>$ ssh ssh.austinpoor.com</Code>.
           </ItemDescription>
-          <ItemTags tags={["javascript", "deno", "hono"]} />
+          <ItemTags tags={["go", "ssh", "wish"]} />
         </LinkItem>
         <LinkItem to="https://github.com/a-poor/watercooler">
           <ItemDate date="2023-08-29" />
@@ -58,16 +61,6 @@ export default function Page() {
             A demo of embedding a JavaScript runtime in Rust using Deno.
           </ItemDescription>
           <ItemTags tags={["rust", "javascript", "deno"]} />
-        </LinkItem>
-        <LinkItem to="https://github.com/a-poor/openai-stream-rust-demo">
-          <ItemDate date="2023-05-26" />
-          <ItemHeader>
-            Streaming ChatGPT API Responses in Rust
-          </ItemHeader>
-          <ItemDescription>
-            A demo of streaming ChatGPT API responses in Rust.
-          </ItemDescription>
-          <ItemTags tags={["rust", "ai", "chatgpt", "async"]} />
         </LinkItem>
         <LinkItem to="https://github.com/a-poor/vhttp">
           <ItemDate date="2022-02-27" />
@@ -93,6 +86,38 @@ export default function Page() {
           </ItemDescription>
           <ItemTags tags={["ai", "clustering", "python"]} />
         </LinkItem>
+        <LinkItem to="https://github.com/a-poor/austin-openai-plugin">
+          <ItemDate date="2023-10-27" />
+          <ItemHeader>
+            My ChatGPT Plugin
+          </ItemHeader>
+          <ItemDescription>
+            A ChatGPT plugin that provides some basic information about
+            me and even lets you send me a message!
+          </ItemDescription>
+          <ItemTags tags={["chatgpt", "deno", "ai"]} />
+        </LinkItem>
+        <LinkItem to="https://github.com/a-poor/apoor-dot-dev">
+          <ItemDate date="2023-11-30" />
+          <ItemHeader>
+            apoor.dev
+          </ItemHeader>
+          <ItemDescription>
+            A custom URL-shortener built with JavaScript and Hono,
+            and hosted on Deno Deploy.
+          </ItemDescription>
+          <ItemTags tags={["javascript", "deno", "hono"]} />
+        </LinkItem>
+        <LinkItem to="https://github.com/a-poor/openai-stream-rust-demo">
+          <ItemDate date="2023-05-26" />
+          <ItemHeader>
+            Streaming ChatGPT API Responses in Rust
+          </ItemHeader>
+          <ItemDescription>
+            A demo of streaming ChatGPT API responses in Rust.
+          </ItemDescription>
+          <ItemTags tags={["rust", "ai", "chatgpt", "async"]} />
+        </LinkItem>
 
         <LinkItem to="https://github.com/a-poor/flask-celery-ml">
           <ItemDate date="2020-01-01" />
@@ -102,30 +127,14 @@ export default function Page() {
           </ItemDescription>
           <ItemTags tags={[]} />
         </LinkItem>
-        <LinkItem to="https://github.com/a-poor/apoor-ssh">
+        {/*<LinkItem to="https://github.com/a-poor/red-tape">
           <ItemDate date="2020-01-01" />
           <ItemHeader>
           </ItemHeader>
           <ItemDescription>
           </ItemDescription>
           <ItemTags tags={[]} />
-        </LinkItem>
-        <LinkItem to="https://github.com/a-poor/austin-openai-plugin">
-          <ItemDate date="2020-01-01" />
-          <ItemHeader>
-          </ItemHeader>
-          <ItemDescription>
-          </ItemDescription>
-          <ItemTags tags={[]} />
-        </LinkItem>
-        <LinkItem to="https://github.com/a-poor/red-tape">
-          <ItemDate date="2020-01-01" />
-          <ItemHeader>
-          </ItemHeader>
-          <ItemDescription>
-          </ItemDescription>
-          <ItemTags tags={[]} />
-        </LinkItem>
+        </LinkItem>*/}
       </ItemList>
     </>
   );
