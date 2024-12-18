@@ -27,6 +27,17 @@ export default function Page() {
       </p>
 
       <ItemList>
+        <LinkItem to="https://github.com/a-poor/apoor-dot-dev">
+          <ItemDate date="2023-11-30" />
+          <ItemHeader>
+            apoor.dev
+          </ItemHeader>
+          <ItemDescription>
+            A custom URL-shortener built with JavaScript and Hono,
+            and hosted on Deno Deploy.
+          </ItemDescription>
+          <ItemTags tags={["javascript", "deno", "hono"]} />
+        </LinkItem>
         <LinkItem to="https://github.com/a-poor/watercooler">
           <ItemDate date="2023-08-29" />
           <ItemHeader>
@@ -58,6 +69,18 @@ export default function Page() {
           </ItemDescription>
           <ItemTags tags={["rust", "ai", "chatgpt", "async"]} />
         </LinkItem>
+        <LinkItem to="https://github.com/a-poor/vhttp">
+          <ItemDate date="2022-02-27" />
+          <ItemHeader>
+            vhttp
+          </ItemHeader>
+          <ItemDescription>
+            A testing library for the Go <Code>net/http</Code> library
+            that makes it easy to write quick assertions about HTTP
+            requests and responses.
+          </ItemDescription>
+          <ItemTags tags={["go", "testing", "http"]} />
+        </LinkItem>
         <LinkItem to="https://github.com/a-poor/color-palettes">
           <ItemDate date="2021-01-27" />
           <ItemHeader>
@@ -70,11 +93,48 @@ export default function Page() {
           </ItemDescription>
           <ItemTags tags={["ai", "clustering", "python"]} />
         </LinkItem>
+
+        <LinkItem to="https://github.com/a-poor/flask-celery-ml">
+          <ItemDate date="2020-01-01" />
+          <ItemHeader>
+          </ItemHeader>
+          <ItemDescription>
+          </ItemDescription>
+          <ItemTags tags={[]} />
+        </LinkItem>
+        <LinkItem to="https://github.com/a-poor/apoor-ssh">
+          <ItemDate date="2020-01-01" />
+          <ItemHeader>
+          </ItemHeader>
+          <ItemDescription>
+          </ItemDescription>
+          <ItemTags tags={[]} />
+        </LinkItem>
+        <LinkItem to="https://github.com/a-poor/austin-openai-plugin">
+          <ItemDate date="2020-01-01" />
+          <ItemHeader>
+          </ItemHeader>
+          <ItemDescription>
+          </ItemDescription>
+          <ItemTags tags={[]} />
+        </LinkItem>
+        <LinkItem to="https://github.com/a-poor/red-tape">
+          <ItemDate date="2020-01-01" />
+          <ItemHeader>
+          </ItemHeader>
+          <ItemDescription>
+          </ItemDescription>
+          <ItemTags tags={[]} />
+        </LinkItem>
       </ItemList>
     </>
   );
 }
 
-// https://github.com/a-poor/flask-celery-ml
-// https://github.com/a-poor/vhttp
-// https://github.com/a-poor/apoor-ssh
+const Code = ({children}: {children: string}) => (
+  <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">
+    {children}
+  </code>
+);
+
+
