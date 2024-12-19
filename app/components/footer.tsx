@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 
 export function Footer() {
   return (
-    <footer className="py-8">
+    <footer className="py-8 bg-zinc-100 dark:bg-zinc-950">
       <div className="text-sm text-gray-500 flex flex-row gap-4 items-center justify-center">
         <FooterLink href="/github">
           GitHub

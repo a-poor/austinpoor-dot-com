@@ -6,7 +6,7 @@ import { Badge, BadgeButton } from "~/components/catalyst/badge";
 
 
 export const ItemHeader = ({ children }: { children?: ReactNode }) => (
-  <h2 className="text-2xl font-bold group-hover:underline">
+  <h2 className="text-2xl font-bold group-hover:underline text-gray-950 dark:text-gray-50">
     {children}
   </h2>
 );

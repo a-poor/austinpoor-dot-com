@@ -15,7 +15,7 @@ export default function Page() {
   const data = useRouteLoaderData("data.theme");
   return (
     <>
-      <div>
+      <div className="text-gray-950 dark:text-gray-50">
         <h1 className="text-7xl pb-4">
           Austin Poor
         </h1>
@@ -38,14 +38,11 @@ export default function Page() {
             <Butterfly size={36} />
             <span className="sr-only">Bluesky</span>
           </Link>
-          <Link to="/youtube">
+          {/* <Link to="/youtube">
             <YoutubeLogo size={36} />
             <span className="sr-only">YouTube</span>
-          </Link>
+          </Link> */}
         </div>
-      </div>
-      <div>
-        Theme: {JSON.stringify(data, null, 2)}
       </div>
     </>
   );

@@ -18,7 +18,7 @@ export function meta(_: Route.MetaArgs) {
 export default function Page() {
   return (
     <>
-      <div className="pb-8">
+      <div className="pb-8 text-gray-950 dark:text-gray-50">
         <h1 className="pb-4 text-4xl">
           Projects
         </h1>

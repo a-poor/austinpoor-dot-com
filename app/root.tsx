@@ -1,14 +1,20 @@
 import {
+  data,
   isRouteErrorResponse,
   Links,
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
+  useFetcher,
+  useLoaderData,
 } from "react-router";
 import type { Route } from "./+types/root";
 import stylesheet from "./app.css?url";
 import { AppLayout } from "~/components/app-layout";
+import type { Theme } from "~/components/theme-picker";
+import { themeCookie } from "~/cookies.server";
+import { Footer } from "~/components/footer";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -25,6 +31,37 @@ export const links: Route.LinksFunction = () => [
   { rel: "icon", href: "favicon.svg" },
   { rel: "sitemap", type: "application/xml", title: "Sitemap", href: "sitemap.xml" },
 ];
+
+export async function loader({ request }: Route.LoaderArgs) {
+  const cookieData = await themeCookie.parse(request.headers.get("Cookie") ?? "");
+  console.log("Cookie data", cookieData);
+  let theme: Theme = "system";
+  if (cookieData === "light" || cookieData === "dark") {
+    theme = cookieData;
+  }
+  console.log("Setting theme", theme);
+  return data({ theme }, {
+    headers: {
+      "Set-Cookie": await themeCookie.serialize(theme),
+    },
+  });
+}
+
+export async function action({ request }: Route.ActionArgs) {
+  const formData = await request.formData();
+  console.log("Got request data", Array.from(formData.keys()));
+  const ftheme = formData.get("theme");
+  console.log("Setting theme", ftheme);
+  let theme: Theme = "system";
+  if (ftheme === "light" || ftheme === "dark") {
+    theme = ftheme;
+  }
+  return data({ theme }, {
+    headers: {
+      "Set-Cookie": await themeCookie.serialize(theme),
+    },
+  });
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -45,10 +82,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const { theme } = useLoaderData<typeof loader>();
+  const fetcher = useFetcher();
+  const setTheme = (theme: Theme) => {
+    fetcher.submit({ theme }, { method: "post" });
+  };
   return (
-    <AppLayout>
-      <Outlet />
-    </AppLayout>
+    <div className={["light", "dark"].includes(theme) ? theme : undefined}>
+      <AppLayout theme={theme} setTheme={setTheme}>
+        <Outlet />
+      </AppLayout>
+      <Footer />
+    </div>
   );
 }
 

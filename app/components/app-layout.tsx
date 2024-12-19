@@ -4,7 +4,7 @@ import { Mountains, MagnifyingGlass } from '@phosphor-icons/react/dist/ssr'
 import { Navbar, NavbarDivider, NavbarItem, NavbarLabel, NavbarSection, NavbarSpacer } from '~/components/catalyst/navbar'
 import { Sidebar, SidebarBody, SidebarHeader, SidebarItem, SidebarLabel, SidebarSection } from '~/components/catalyst/sidebar'
 import { StackedLayout } from '~/components/catalyst/stacked-layout'
-import { Footer } from '~/components/footer'
+import { ThemePicker, type Theme } from './theme-picker';
 
 const navItems = [
   { label: 'Home', url: '/' },
@@ -13,62 +13,64 @@ const navItems = [
   { label: 'About', url: '/about' },
 ]
 
-export function AppLayout({ children }: { children: ReactNode }) {
+export function AppLayout({ children, theme, setTheme }: {
+  children: ReactNode;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+}) {
   const location = useLocation();
   return (
-    <>
-      <StackedLayout
-        navbar={
-          <Navbar>
-            <NavbarItem>
-              <Link to="/" className="max-lg:hidden flex items-center gap-2">
-                <Mountains size={26} />
-                <NavbarLabel className="text-lg font-medium">
-                  AustinPoor.com
-                </NavbarLabel>
-              </Link>
-            </NavbarItem>
-            <NavbarDivider className="max-lg:hidden" />
-            <NavbarSection className="max-lg:hidden">
-              {navItems.map(({ label, url }) => (
-                <NavbarItem key={label} href={url} current={location.pathname === url || (url !== '/' && location.pathname.startsWith(url))}>
-                  {label}
-                </NavbarItem>
-              ))}
-            </NavbarSection>
-            <NavbarSpacer />
-            <NavbarSection>
-              <NavbarItem href="/search" aria-label="Search">
-                <MagnifyingGlass size={20} />
+    <StackedLayout
+      navbar={
+        <Navbar>
+          <NavbarItem>
+            <Link to="/" className="max-lg:hidden flex items-center gap-2">
+              <Mountains size={26} />
+              <NavbarLabel className="text-lg font-medium">
+                AustinPoor.com
+              </NavbarLabel>
+            </Link>
+          </NavbarItem>
+          <NavbarDivider className="max-lg:hidden" />
+          <NavbarSection className="max-lg:hidden">
+            {navItems.map(({ label, url }) => (
+              <NavbarItem key={label} href={url} current={location.pathname === url || (url !== '/' && location.pathname.startsWith(url))}>
+                {label}
               </NavbarItem>
-            </NavbarSection>
-          </Navbar>
-        }
-        sidebar={
-          <Sidebar>
-            <SidebarHeader>
-              <SidebarItem className="lg:mb-2.5">
-                <Link to="/" className="flex items-center gap-2">
-                  <Mountains size={26} />
-                  <SidebarLabel>Austin Poor</SidebarLabel>
-                </Link>
-              </SidebarItem>
-            </SidebarHeader>
-            <SidebarBody>
-              <SidebarSection>
-                {navItems.map(({ label, url }) => (
-                  <SidebarItem key={label} href={url} current={location.pathname === url}>
-                    {label}
-                  </SidebarItem>
-                ))}
-              </SidebarSection>
-            </SidebarBody>
-          </Sidebar>
-        }
-      >
-        {children}
-      </StackedLayout>
-      <Footer />
-    </>
+            ))}
+          </NavbarSection>
+          <NavbarSpacer />
+          <NavbarSection>
+            <NavbarItem href="/search" aria-label="Search">
+              <MagnifyingGlass size={20} />
+            </NavbarItem>
+            <ThemePicker theme={theme} setTheme={setTheme} />
+          </NavbarSection>
+        </Navbar>
+      }
+      sidebar={
+        <Sidebar>
+          <SidebarHeader>
+            <SidebarItem className="lg:mb-2.5">
+              <Link to="/" className="flex items-center gap-2">
+                <Mountains size={26} />
+                <SidebarLabel>Austin Poor</SidebarLabel>
+              </Link>
+            </SidebarItem>
+          </SidebarHeader>
+          <SidebarBody>
+            <SidebarSection>
+              {navItems.map(({ label, url }) => (
+                <SidebarItem key={label} href={url} current={location.pathname === url}>
+                  {label}
+                </SidebarItem>
+              ))}
+            </SidebarSection>
+          </SidebarBody>
+        </Sidebar>
+      }
+    >
+      {children}
+    </StackedLayout>
   )
 }

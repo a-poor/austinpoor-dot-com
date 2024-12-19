@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Monitor,
   SunDim,
@@ -6,12 +5,12 @@ import {
 } from '@phosphor-icons/react/dist/ssr';
 import { Dropdown, DropdownButton, DropdownItem, DropdownMenu, DropdownLabel } from '~/components/catalyst/dropdown'
 
+export type Theme = 'system' | 'light' | 'dark';
 
-export function ThemePicker() {
-  const [theme, setTheme] = useState("system");
+export function ThemePicker({ theme, setTheme }: { theme: Theme, setTheme: (theme: Theme) => void }) {
   return (
     <Dropdown>
-      <DropdownButton as='button' aria-label="Select Theme">
+      <DropdownButton as='button' aria-label="Select Theme" className="text-gray-950 dark:text-gray-50">
         {theme === 'system' && (
           <>
             <Monitor size={20} />
