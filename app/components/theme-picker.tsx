@@ -1,17 +1,17 @@
-import { useState } from 'react';
 import {
   Monitor,
   SunDim,
   Moon,
 } from '@phosphor-icons/react/dist/ssr';
 import { Dropdown, DropdownButton, DropdownItem, DropdownMenu, DropdownLabel } from '~/components/catalyst/dropdown'
+import { useTheme } from '~/components/theme-context';
 
 
 export function ThemePicker() {
-  const [theme, setTheme] = useState("system");
+  const { theme, setTheme } = useTheme();
   return (
     <Dropdown>
-      <DropdownButton as='button' aria-label="Select Theme">
+      <DropdownButton as='button' aria-label="Select Theme" className="text-gray-950 dark:text-gray-50">
         {theme === 'system' && (
           <>
             <Monitor size={20} />
@@ -31,7 +31,7 @@ export function ThemePicker() {
           </>
         )}
       </DropdownButton>
-      <DropdownMenu>
+      <DropdownMenu anchor="bottom end">
         <DropdownItem
           onClick={() => setTheme('system')}
           className={theme === "system" ? "gap-2" : "gap-2"}
