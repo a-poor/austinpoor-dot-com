@@ -20,7 +20,7 @@ export default function Page() {
   const sortedBlogPosts = Object.values(blogPosts).sort((a, b) => new Date(b.front.publishDate).getTime() - new Date(a.front.publishDate).getTime());
   return (
     <>
-      <div className="pb-8 text-gray-950 dark:text-gray-50">
+      <div className="pb-8">
         <h1 className="pb-4 text-4xl">
           Blog
         </h1>

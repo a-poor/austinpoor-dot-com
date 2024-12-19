@@ -5,8 +5,6 @@ import { Navbar, NavbarDivider, NavbarItem, NavbarLabel, NavbarSection, NavbarSp
 import { Sidebar, SidebarBody, SidebarHeader, SidebarItem, SidebarLabel, SidebarSection } from '~/components/catalyst/sidebar'
 import { StackedLayout } from '~/components/catalyst/stacked-layout'
 import { Footer } from '~/components/footer'
-import { ThemePicker } from '~/components/theme-picker'
-
 
 const navItems = [
   { label: 'Home', url: '/' },
@@ -43,7 +41,6 @@ export function AppLayout({ children }: { children: ReactNode }) {
               <NavbarItem href="/search" aria-label="Search">
                 <MagnifyingGlass size={20} />
               </NavbarItem>
-              <ThemePicker />
             </NavbarSection>
           </Navbar>
         }
