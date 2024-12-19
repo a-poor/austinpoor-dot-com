@@ -34,12 +34,10 @@ export const links: Route.LinksFunction = () => [
 
 export async function loader({ request }: Route.LoaderArgs) {
   const cookieData = await themeCookie.parse(request.headers.get("Cookie") ?? "");
-  console.log("Cookie data", cookieData);
   let theme: Theme = "system";
   if (cookieData === "light" || cookieData === "dark") {
     theme = cookieData;
   }
-  console.log("Setting theme", theme);
   return data({ theme }, {
     headers: {
       "Set-Cookie": await themeCookie.serialize(theme),
@@ -49,9 +47,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 
 export async function action({ request }: Route.ActionArgs) {
   const formData = await request.formData();
-  console.log("Got request data", Array.from(formData.keys()));
   const ftheme = formData.get("theme");
-  console.log("Setting theme", ftheme);
   let theme: Theme = "system";
   if (ftheme === "light" || ftheme === "dark") {
     theme = ftheme;

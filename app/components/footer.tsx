@@ -2,8 +2,28 @@ import { Link } from 'react-router';
 
 export function Footer() {
   return (
-    <footer className="py-8 bg-zinc-100 dark:bg-zinc-950">
-      <div className="text-sm text-gray-500 flex flex-row gap-4 items-center justify-center">
+    <footer className="pt-8 pb-14 bg-zinc-100 dark:bg-zinc-950 flex flex-col gap-4 text-sm text-gray-600 dark:text-gray-400">
+      <div className="flex flex-row gap-4 items-center justify-center">
+        <FooterLink href="/">
+          Home
+        </FooterLink>
+        <FooterLink href="/blog">
+          Blog
+        </FooterLink>
+        <FooterLink href="/projects">
+          Projects
+        </FooterLink>
+        <FooterLink href="/uses">
+          Uses
+        </FooterLink>
+        <FooterLink href="/about">
+          About
+        </FooterLink>
+      </div>
+      <div className="text-center" aria-hidden="true">
+        ***
+      </div>
+      <div className="flex flex-row gap-4 items-center justify-center">
         <FooterLink href="/github">
           GitHub
         </FooterLink>
@@ -17,10 +37,10 @@ export function Footer() {
           YouTube
         </FooterLink> */}
       </div>
-      <div className="py-6 text-sm text-gray-500 text-center">
+      <div className="text-center" aria-hidden="true">
         ***
       </div>
-      <div className="text-sm text-gray-500 text-center">
+      <div className="text-center">
         &copy; 2020-{new Date().getFullYear()} Austin Poor
       </div>
     </footer>
@@ -32,7 +52,6 @@ export function FooterLink({ href, children }: { href: string; children: React.R
     <Link
       to={href}
       className="
-        text-gray-500
         underline
         decoration-gray-500/50
         hover:decoration-gray-950
