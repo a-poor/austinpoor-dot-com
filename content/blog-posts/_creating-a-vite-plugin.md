@@ -3,7 +3,7 @@ title: "Creating a Vite Plugin"
 subtitle: ""
 description: ""
 image:
-  src: "#"
+  src: ""
   alt: ""
   caption: ""
   captionLink: ""

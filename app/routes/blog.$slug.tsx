@@ -1,40 +1,56 @@
 import { useMemo, useEffect } from "react";
 import moment from "moment";
-import { data, Link, redirect, useLoaderData } from "react-router";
+import { data, Link, redirect } from "react-router";
 import type { Route } from "./+types/blog.$slug";
 import blogPosts from 'virtual:load-blog-posts';
 import { Badge } from "~/components/catalyst/badge";
 import { BlogPostMeta } from "~/components/structured-meta";
 
 
-export function meta({ params }: Route.ComponentProps) {
-  if (!params.slug) {
-    return;
-  }
-  const post = blogPosts[params.slug];
-  if (!post) {
-    return;
-  }
-  return [
-    { title: post.front?.title && `${post.front.title} | AustinPoor.com` },
-    { name: "description", content: post.front?.description },
-  ];
-}
-
 export function loader({ params }: Route.LoaderArgs) {
   if (!params.slug || !blogPosts[params.slug]) {
     throw data("Not Found", { status: 404 });
   }
-  return blogPosts[params.slug] as {
-    slug: string;
-    front: Record<string, any>;
-    html: string;
-    readTime: string;
+  return {
+    post: blogPosts[params.slug] as {
+      slug: string;
+      front: Record<string, any>;
+      html: string;
+      readTime: string;
+    },
   };
 }
 
-export default function Page() {
-  const post = useLoaderData<typeof loader>();
+export function meta({ params, loaderData }: Route.ComponentProps) {
+  if (!params.slug || !blogPosts[params.slug]) {
+    return;
+  }
+  if (!loaderData?.post) {
+    console.error("No post data found for slug:", params.slug);
+    return;
+  }
+  const { post } = loaderData;
+  return [
+    { title: post.front?.title && `${post.front.title} | AustinPoor.com` },
+    { name: "description", content: post.front?.description },
+    { name: "og:image", content: post.front?.image?.src },
+    { name: "og:image:alt", content: post.front?.image?.alt },
+    { "script:ld+json": {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post?.front?.title,
+      image: post?.front?.image?.src,
+      datePublished: post?.front?.publishDate,
+      author: {
+        name: "Austin Poor",
+        url: "https://austinpoor.com/about",
+      },
+    }},
+  ];
+}
+
+export default function Page({ loaderData }: Route.ComponentProps) {
+  const { post } = loaderData;
   const pd = useMemo(() => post?.front?.publishDate ? moment(post.front.publishDate) : null, [post?.front?.publishDate]);
   useEffect(() => {
     if (!post) {

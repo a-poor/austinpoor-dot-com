@@ -1,4 +1,3 @@
-import type { Route } from "./+types/blog._index";
 import {
   ItemList,
   LinkItem,
@@ -9,7 +8,22 @@ import {
 } from "~/components/item-list";
 import blogPosts from 'virtual:load-blog-posts';
 
-export function meta(_: Route.MetaArgs) {
+
+type Post = {
+  slug: string;
+  front: {
+    publishDate: string;
+    title: string;
+    description: string;
+    tags: string[];
+  };
+  html: string;
+  readTime: string;
+};
+const comparePosts = (a: Post, b: Post) => new Date(b.front.publishDate as string).getTime() - new Date(a.front.publishDate as string).getTime();
+const posts = Object.values(blogPosts as Record<string, Post>).sort(comparePosts);
+
+export function meta() {
   return [
     { title: "Blog | AustinPoor.com" },
     { name: "description", content: "Welcome to Austin's Blog!" },
@@ -17,7 +31,6 @@ export function meta(_: Route.MetaArgs) {
 }
 
 export default function Page() {
-  const sortedBlogPosts = Object.values(blogPosts).sort((a, b) => new Date(b.front.publishDate).getTime() - new Date(a.front.publishDate).getTime());
   return (
     <>
       <div className="pb-8 text-gray-950 dark:text-gray-50">
@@ -31,7 +44,7 @@ export default function Page() {
       </div>
 
       <ItemList>
-        {sortedBlogPosts.map((p) => (
+        {posts.map((p) => (
           <LinkItem to={`/blog/${p.slug}`} key={p.slug}>
             <ItemDate date={p.front.publishDate} />
             <ItemHeader>

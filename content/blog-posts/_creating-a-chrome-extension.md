@@ -3,7 +3,7 @@ title: "Creating a Chrome Extension"
 subtitle: ""
 description: ""
 image:
-  src: "#"
+  src: ""
   alt: ""
   caption: ""
   captionLink: ""

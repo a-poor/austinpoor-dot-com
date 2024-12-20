@@ -1,9 +1,9 @@
 ---
-title: "Creating a Vite Plugin"
+title: "Safely Running LLM Code with Deno"
 subtitle: ""
 description: ""
 image:
-  src: "#"
+  src: ""
   alt: ""
   caption: ""
   captionLink: ""

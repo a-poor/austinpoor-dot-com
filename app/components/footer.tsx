@@ -33,9 +33,9 @@ export function Footer() {
         <FooterLink href="/bluesky">
           BlueSky
         </FooterLink>
-        {/* <FooterLink href="/youtube">
+        <FooterLink href="/youtube">
           YouTube
-        </FooterLink> */}
+        </FooterLink>
       </div>
       <div className="text-center" aria-hidden="true">
         ***

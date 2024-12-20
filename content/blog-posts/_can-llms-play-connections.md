@@ -1,14 +1,13 @@
 ---
-isDraft: true
 title: "Can LLMs Play Connections?"
 subtitle: ""
 description: ""
 image:
-  src: "/images/color-palette-example.webp"
+  src: ""
   alt: ""
   caption: ""
   captionLink: ""
-publishDate: "2024-07-31"
+publishDate: ""
 tags: []
 recommended: []
 ---
