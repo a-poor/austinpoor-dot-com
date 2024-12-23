@@ -28,6 +28,8 @@ export default function Page() {
               src="/images/austin-and-sandwich-350.webp"
               alt="Austin and Sandwich"
               className="max-h-[350px] object-cover rounded-2xl aspect-square"
+              width={350}
+              height={350}
             />
             <figcaption className="pt-3 text-sm text-gray-500">
               Me and Sandwich
@@ -60,6 +62,8 @@ export default function Page() {
               src="/images/austin-half-marathon-350.webp"
               alt="Austin after finishing the 2024 San Diego Half-Marathon"
               className="max-h-[350px] object-cover rounded-2xl aspect-square"
+              width={350}
+              height={350}
             />
             <figcaption className="pt-3 text-sm text-gray-500">
               Me after finishing the 2024 San Diego Half-Marathon
@@ -86,6 +90,8 @@ export default function Page() {
               src="/images/sandwich-and-mitch-kitchen-350.webp"
               alt="Sandwich and Mitch in the kitchen"
               className="max-h-[350px] object-cover rounded-2xl aspect-square"
+              width={350}
+              height={350}
             />
             <figcaption className="pt-3 text-sm text-gray-500">
               Sandwich (right) and Mitch (left) in the kitchen
