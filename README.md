@@ -2,11 +2,12 @@
 
 _created by Austin Poor_
 
-![A screenshot of my website](./misc/website-screenshot.png)
-
 The code for my personal website, [https://austinpoor.com](https://austinpoor.com).
 
-It's built with [Astro](https://astro.build), styled with [Tailwind](tailwindcss.com/), hosted on [Vercel](https://vercel.com/), and uses [Plausible](https://plausible.io/) for analytics.
+It's built with React, React Router v7, Tailwind, and Catalyst.
 
-You can read more about the process from my blog post here: https://austinpoor.com/blog/astro-rewrite
+You can read about the process of re-writing my site in Astro on my blog 
+[here](https://austinpoor.com/blog/astro-rewrite) (but it isn't fully up-to-date
+because I've re-written it since then). 
+
 
