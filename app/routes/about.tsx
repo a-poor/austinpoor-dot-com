@@ -23,11 +23,16 @@ export default function Page() {
       </div>
       <div className="pb-8 text-gray-950 dark:text-gray-50 text-base space-y-2">
         <div className="pb-6 flex flex-wrap gap-4">
-          <img
-            src="/images/austin-and-sandwich-350.webp"
-            alt="Austin and Sandwich"
-            className="max-h-[350px] object-cover rounded-2xl aspect-square"
-          />
+          <figure>
+            <img
+              src="/images/austin-and-sandwich-350.webp"
+              alt="Austin and Sandwich"
+              className="max-h-[350px] object-cover rounded-2xl aspect-square"
+            />
+            <figcaption className="pt-3 text-sm text-gray-500">
+              Me and Sandwich
+            </figcaption>
+          </figure>
         </div>
         <p>
           Hi, I'm Austin! I'm a full-stack software engineer, living in Los Angeles.
@@ -50,11 +55,16 @@ export default function Page() {
           </div>
         </div>
         <div className="pb-6 flex flex-wrap gap-4">
-          <img
-            src="/images/austin-half-marathon-350.webp"
-            alt="Austin after finishing the 2024 San Diego Half-Marathon"
-            className="max-h-[350px] object-cover rounded-2xl aspect-square"
-          />
+          <figure>
+            <img
+              src="/images/austin-half-marathon-350.webp"
+              alt="Austin after finishing the 2024 San Diego Half-Marathon"
+              className="max-h-[350px] object-cover rounded-2xl aspect-square"
+            />
+            <figcaption className="pt-3 text-sm text-gray-500">
+              Me after finishing the 2024 San Diego Half-Marathon
+            </figcaption>
+          </figure>
         </div>
         <p>
           I've recently started getting into running and I'm training for the 2025 LA Marathon.
