@@ -24,7 +24,7 @@ export default function Page() {
       <div className="pb-8 text-gray-950 dark:text-gray-50 text-base space-y-2">
         <div className="pb-6 flex flex-wrap gap-4">
           <img
-            src="/images/austin-and-sandwich-800x800.webp"
+            src="/images/austin-and-sandwich-350.webp"
             alt="Austin and Sandwich"
             className="max-h-[350px] object-cover rounded-2xl aspect-square"
           />
@@ -51,8 +51,8 @@ export default function Page() {
         </div>
         <div className="pb-6 flex flex-wrap gap-4">
           <img
-            src="/images/austin-half-marathon-800x1067.webp"
-            alt="Austin and Sandwich"
+            src="/images/austin-half-marathon-350.webp"
+            alt="Austin after finishing the 2024 San Diego Half-Marathon"
             className="max-h-[350px] object-cover rounded-2xl aspect-square"
           />
         </div>
@@ -73,7 +73,7 @@ export default function Page() {
         <div className="pb-6 flex flex-wrap gap-4">
           <figure>
             <img
-              src="/images/sandwich-and-mitch-kitchen-800x800.webp"
+              src="/images/sandwich-and-mitch-kitchen-350.webp"
               alt="Sandwich and Mitch in the kitchen"
               className="max-h-[350px] object-cover rounded-2xl aspect-square"
             />
