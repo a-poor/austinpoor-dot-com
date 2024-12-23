@@ -3,3 +3,7 @@ name = "austinpoor-dot-com"
 compatibility_date = "2024-11-18"
 main = "./build/server/index.js"
 assets = { directory = "./build/client/" }
+routes = [
+    { pattern = "austinpoor.com", custom_domain = true },
+    { pattern = "www.austinpoor.com", custom_domain = true },
+]
