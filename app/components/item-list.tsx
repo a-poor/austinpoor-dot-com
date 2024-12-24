@@ -5,11 +5,17 @@ import moment from "moment";
 import { Badge, BadgeButton } from "~/components/catalyst/badge";
 
 
-export const ItemHeader = ({ children }: { children?: ReactNode }) => (
-  <h2 className="text-2xl font-bold group-hover:underline text-gray-950 dark:text-gray-50">
-    {children}
-  </h2>
-);
+export const ItemHeader = ({ children, as }: { children?: ReactNode, as?: "h2" | "h3" }) => {
+  const classes = "text-2xl font-bold group-hover:underline text-gray-950 dark:text-gray-50";
+  if (as === "h3") {
+    return <h3 className={classes}>{children}</h3>;
+  }
+  return (
+    <h2 className={classes}>
+      {children}
+    </h2>
+  );
+}
 
 export const ItemDescription = ({ children }: { children?: ReactNode }) => (
   <p className="text-base text-gray-700 dark:text-gray-300">

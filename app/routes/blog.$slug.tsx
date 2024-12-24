@@ -1,11 +1,18 @@
 import { useMemo, useEffect } from "react";
 import moment from "moment";
-import { data, Link, redirect } from "react-router";
+import { Link, redirect } from "react-router";
 import type { Route } from "./+types/blog.$slug";
 import blogPosts from 'virtual:load-blog-posts';
 import { Badge } from "~/components/catalyst/badge";
 import { BlogPostMeta } from "~/components/structured-meta";
-
+import {
+  ItemList,
+  LinkItem,
+  ItemDate,
+  ItemHeader,
+  ItemDescription,
+  ItemTags,
+} from "~/components/item-list";
 
 
 export function meta({ params }: Route.ComponentProps) {
@@ -19,23 +26,16 @@ export function meta({ params }: Route.ComponentProps) {
     { name: "description", content: post.front?.description },
     { name: "og:image", content: post.front?.image?.src },
     { name: "og:image:alt", content: post.front?.image?.alt },
-    { "script:ld+json": {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: post?.front?.title,
-      image: post?.front?.image?.src,
-      datePublished: post?.front?.publishDate,
-      author: {
-        name: "Austin Poor",
-        url: "https://austinpoor.com/about",
-      },
-    }},
   ];
 }
 
 export default function Page({ params }: Route.ComponentProps) {
   const post = blogPosts[params.slug];
   const pd = useMemo(() => post?.front?.publishDate ? moment(post.front.publishDate) : null, [post?.front?.publishDate]);
+  const recommended = useMemo(() => {
+    const recSlugs: string[] = post?.front?.recommended || [];
+    return recSlugs.map((slug) => blogPosts[slug]).filter(Boolean);
+  }, [params.slug]);
   useEffect(() => {
     if (!post) {
       redirect("/blog");
@@ -93,13 +93,39 @@ export default function Page({ params }: Route.ComponentProps) {
         </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
+      <div className="text-center py-8 text-gray-500">
+        ***
+      </div>
+      <section className="prose dark:prose-invert lg:prose-xl mx-auto">
+        <h2>
+          Recommended Reading
+        </h2>
+        <div className="not-prose">
+          <ItemList>
+            {recommended.map((p) => (
+              <LinkItem to={`/blog/${p.slug}`} key={p.slug}>
+                <ItemDate date={p.front.publishDate} />
+                <ItemHeader as="h3">
+                  {p.front.title}
+                </ItemHeader>
+                <ItemDescription>
+                  <span className="line-clamp-3">
+                    {p.front.description}
+                  </span>
+                </ItemDescription>
+                <ItemTags tags={p.front.tags} />
+              </LinkItem>
+            ))}
+          </ItemList>
+        </div>
+      </section>
       <BlogPostMeta meta={{
         headline: post?.front?.title,
         image: post?.front?.image?.src,
         datePublished: post?.front?.publishDate,
         author: {
           name: "Austin Poor",
-          url: "/about",
+          url: "https://austinpoor.com/about",
         },
       }} />
     </>
