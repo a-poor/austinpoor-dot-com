@@ -16,17 +16,9 @@ import type { Theme } from "~/components/theme-picker";
 import { themeCookie } from "~/cookies.server";
 import { Footer } from "~/components/footer";
 
+const IS_PROD = import.meta.env.PROD;
+
 export const links: Route.LinksFunction = () => [
-  // { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  // {
-  //   rel: "preconnect",
-  //   href: "https://fonts.gstatic.com",
-  //   crossOrigin: "anonymous",
-  // },
-  // {
-  //   rel: "stylesheet",
-  //   href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  // },
   { rel: "stylesheet", href: stylesheet },
   { rel: "icon", href: "/favicon.svg" },
   { rel: "sitemap", type: "application/xml", title: "Sitemap", href: "sitemap.xml" },
@@ -67,6 +59,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+        {IS_PROD && (
+          <PlausibleStuff />
+        )}
       </head>
       <body>
         {children}
@@ -119,5 +114,25 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
         </pre>
       )}
     </main>
+  );
+}
+
+function PlausibleStuff() {
+  return (
+    <>
+      <script
+        defer 
+        id="plausible-script"
+        data-domain="austinpoor.com"
+        src="https://plausible.io/js/script.outbound-links.tagged-events.js"
+      ></script>
+      <script dangerouslySetInnerHTML={{
+        __html: `
+          window.plausible = window.plausible || function() { 
+            (window.plausible.q = window.plausible.q || []).push(arguments) 
+          }
+        `,
+      }}></script>
+    </>
   );
 }
