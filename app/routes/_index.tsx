@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { GithubLogo, LinkedinLogo, Butterfly, YoutubeLogo } from '@phosphor-icons/react';
 import { useRouteLoaderData } from "react-router";
 import blogPosts from "virtual:load-blog-posts";
+import { useMemo } from "react";
 
 type BlogPost = {
   slug: string;
@@ -29,10 +30,6 @@ const orderBlogPost = (a: BlogPost, b: BlogPost) => {
 };
 
 const recentBlogPosts = Object.values(blogPosts as Record<string, BlogPost>).sort(orderBlogPost).slice(0, 3);
-const blogDates = recentBlogPosts.map((post) => {
-  const d = new Date(post.front.publishDate);
-  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
-});
 
 export function meta(_: Route.MetaArgs) {
   return [
@@ -83,33 +80,15 @@ export default function Page() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {recentBlogPosts.map((post, i) => (
-              <Link
-                key={post.slug}
-                to={`/blog/${post.slug}`}
-                className="group rounded-2xl overflow-hidden space-y-2 border-2 border-gray-200 dark:border-gray-600 pb-6"
-              >
-                <div className="overflow-hidden max-h-[350px]">
-                  <img
-                    src={post.front.image.src}
-                    alt={post.front.image.alt}
-                    className="object-cover aspect-[2/1] object-top brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-300"
-                    />
-                </div>
-                <h3 className="px-2 text-xl font-semibold">
-                  {post.front.title}
-                </h3>
-                <p className="px-2 text-base line-clamp-3">
-                  {post.front.description}
-                </p>
-                <div className="px-2 text-sm text-gray-500 grid grid-cols-2">
-                  <div>
-                    {blogDates[i]}
-                  </div>
-                  <div className="text-right">
-                    {post.readTime}
-                  </div>
-                </div>
-              </Link>
+              <BlogPostPreviewCard 
+                key={post.slug} 
+                slug={post.slug}
+                img={post.front.image}
+                title={post.front.title}
+                description={post.front.description}
+                readTime={post.readTime}
+                postDate={post.front.publishDate}
+              />
             ))}
           </div>
           <div className="py-2">
@@ -128,6 +107,9 @@ export default function Page() {
             </div>
           </div>
           <div className="pb-8 text-gray-950 dark:text-gray-50 text-base space-y-2">
+            <p>
+              In my free time, I like to build things and experiment with new technologies.
+            </p>
             <p>
               Check out my projects page to see more.
             </p>
@@ -148,6 +130,9 @@ export default function Page() {
             </div>
           </div>
           <div className="pb-8 text-gray-950 dark:text-gray-50 text-base space-y-2">
+            <p className="[&>a]:underline">
+              I'm a software engineer living in Los Angeles, CA. I have two dogs, <Link to="/about#sandwich-and-mitch">Sandwich and Mitch</Link>.
+            </p>
             <p>
               Check out my about me page to learn more.
             </p>
@@ -162,3 +147,50 @@ export default function Page() {
     </>
   );
 }
+
+function BlogPostPreviewCard({slug, title, description, readTime, postDate, img}: {
+  slug: string;
+  title: string;
+  description: string;
+  readTime: string;
+  postDate: string;
+  img: {
+    src: string;
+    alt: string;
+  }
+}) {
+  const date = useMemo(() => {
+    const d = new Date(postDate);
+    return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })
+  }, [postDate]);
+  return (
+    <Link
+      to={`/blog/${slug}`}
+      className="group rounded-2xl overflow-hidden space-y-2 border-2 border-gray-200 dark:border-gray-600 pb-6"
+    >
+      <div className="overflow-hidden max-h-[350px]">
+        <img
+          src={img.src}
+          alt={img.alt}
+          className="object-cover aspect-[2/1] object-top brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-300"
+          height={350}
+          />
+      </div>
+      <h3 className="px-2 text-xl font-semibold">
+        {title}
+      </h3>
+      <p className="px-2 text-base line-clamp-3">
+        {description}
+      </p>
+      <div className="px-2 text-sm text-gray-500 grid grid-cols-2">
+        <div>
+          {date}
+        </div>
+        <div className="text-right">
+          {readTime}
+        </div>
+      </div>
+    </Link>
+  );
+}
+

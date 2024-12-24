@@ -7,29 +7,13 @@ import { Badge } from "~/components/catalyst/badge";
 import { BlogPostMeta } from "~/components/structured-meta";
 
 
-export function loader({ params }: Route.LoaderArgs) {
-  if (!params.slug || !blogPosts[params.slug]) {
-    throw data("Not Found", { status: 404 });
-  }
-  return {
-    post: blogPosts[params.slug] as {
-      slug: string;
-      front: Record<string, any>;
-      html: string;
-      readTime: string;
-    },
-  };
-}
 
-export function meta({ params, loaderData }: Route.ComponentProps) {
-  if (!params.slug || !blogPosts[params.slug]) {
-    return;
-  }
-  if (!loaderData?.post) {
+export function meta({ params }: Route.ComponentProps) {
+  const post = blogPosts[params.slug];
+  if (!post) {
     console.error("No post data found for slug:", params.slug);
     return;
   }
-  const { post } = loaderData;
   return [
     { title: post.front?.title && `${post.front.title} | AustinPoor.com` },
     { name: "description", content: post.front?.description },
@@ -49,8 +33,8 @@ export function meta({ params, loaderData }: Route.ComponentProps) {
   ];
 }
 
-export default function Page({ loaderData }: Route.ComponentProps) {
-  const { post } = loaderData;
+export default function Page({ params }: Route.ComponentProps) {
+  const post = blogPosts[params.slug];
   const pd = useMemo(() => post?.front?.publishDate ? moment(post.front.publishDate) : null, [post?.front?.publishDate]);
   useEffect(() => {
     if (!post) {
