@@ -27,6 +27,7 @@ export function meta() {
   return [
     { title: "Blog | AustinPoor.com" },
     { name: "description", content: "Welcome to Austin's Blog!" },
+    { rel: "canonical", href: "https://austinppoor.com/blog" },
   ];
 }
 

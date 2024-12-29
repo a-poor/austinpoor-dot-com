@@ -42,6 +42,7 @@ export function meta(_: Route.MetaArgs) {
   return [
     { title: "Search | AustinPoor.com" },
     { name: "description", content: "Search for anything on AustinPoor.com" },
+    { rel: "canonical", href: "https://austinppoor.com/search" },
   ];
 }
 

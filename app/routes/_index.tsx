@@ -35,6 +35,7 @@ export function meta(_: Route.MetaArgs) {
   return [
     { title: "AustinPoor.com" },
     { name: "description", content: "Welcome to AustinPoor.com!" },
+    { rel: "canonical", href: "https://austinppoor.com" },
   ];
 }
 

@@ -6,6 +6,7 @@ export function meta(_: Route.MetaArgs) {
   return [
     { title: "About Me | AustinPoor.com" },
     { name: "description", content: "Learn more about Austin" },
+    { rel: "canonical", href: "https://austinppoor.com/about" },
   ];
 }
 

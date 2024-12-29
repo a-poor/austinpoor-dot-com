@@ -13,6 +13,7 @@ export function meta(_: Route.MetaArgs) {
   return [
     { title: "Projects | AustinPoor.com" },
     { name: "description", content: "Check out Austin's projects!" },
+    { rel: "canonical", href: "https://austinppoor.com/projects" },
   ];
 }
 
