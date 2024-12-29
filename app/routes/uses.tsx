@@ -4,7 +4,7 @@ export function meta(_: Route.MetaArgs) {
   return [
     { title: "Uses | AustinPoor.com" },
     { name: "description", content: "Austin's tools and gear" },
-    { rel: "canonical", href: "https://austinppoor.com/uses" },
+    { rel: "canonical", href: "https://austinppoor.com/uses/" },
   ];
 }
 

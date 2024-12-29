@@ -26,7 +26,7 @@ export function meta({ params }: Route.ComponentProps) {
     { name: "description", content: post.front?.description },
     { name: "og:image", content: post.front?.image?.src },
     { name: "og:image:alt", content: post.front?.image?.alt },
-    { rel: "canonical", href: `https://austinppoor.com/blog/${params.slug}` },
+    { rel: "canonical", href: `https://austinppoor.com/blog/${params.slug}/` },
   ];
 }
 

@@ -6,7 +6,7 @@ export function meta(_: Route.MetaArgs) {
   return [
     { title: "About Me | AustinPoor.com" },
     { name: "description", content: "Learn more about Austin" },
-    { rel: "canonical", href: "https://austinppoor.com/about" },
+    { rel: "canonical", href: "https://austinppoor.com/about/" },
   ];
 }
 
@@ -115,7 +115,7 @@ export default function Page() {
           mainEntity: {
             "@type": "Person",
             name: "Austin Poor",
-            url: "https://austinpoor.com/about",
+            url: "https://austinpoor.com/about/",
             image: "/images/austin-and-sandwich.webp",
             sameAs: [
               "https://github.com/a-poor",
