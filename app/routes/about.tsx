@@ -111,15 +111,18 @@ export default function Page() {
       </div>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "Person",
-          name: "Austin Poor",
-          url: "https://austinppoor.com/about",
-          image: "/images/austin-and-sandwich.webp",
-          sameAs: [
-            "https://github.com/a-poor",
-            "https://linkedin.com/in/austinpoor",
-            "https://bsky.app/profile/austinpoor.com",
-          ],
+          "@type": "ProfilePage",
+          mainEntity: {
+            "@type": "Person",
+            name: "Austin Poor",
+            url: "https://austinpoor.com/about",
+            image: "/images/austin-and-sandwich.webp",
+            sameAs: [
+              "https://github.com/a-poor",
+              "https://linkedin.com/in/austinpoor",
+              "https://bsky.app/profile/austinpoor.com",
+            ],
+          },
         })}}
       />
     </>
