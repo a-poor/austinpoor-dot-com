@@ -123,8 +123,9 @@ export default function Page({ params }: Route.ComponentProps) {
       <BlogPostMeta meta={{
         headline: post?.front?.title,
         image: post?.front?.image?.src,
-        datePublished: post?.front?.publishDate,
+        datePublished: new Date(post?.front?.publishDate).toISOString(),
         author: {
+          '@type': "Person",
           name: "Austin Poor",
           url: "https://austinpoor.com/about",
         },

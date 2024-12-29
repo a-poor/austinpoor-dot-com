@@ -109,6 +109,19 @@ export default function Page() {
           Here's a picture of me after finishing the 2024 San Diego Half-Marathon.
         </p>
       </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Person",
+          name: "Austin Poor",
+          url: "https://austinppoor.com/about",
+          image: "/images/austin-and-sandwich.webp",
+          sameAs: [
+            "https://github.com/a-poor",
+            "https://linkedin.com/in/austinpoor",
+            "https://bsky.app/profile/austinpoor.com",
+          ],
+        })}}
+      />
     </>
   );
 }

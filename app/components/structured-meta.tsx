@@ -5,6 +5,7 @@ export type BlogPostMetaData = {
   datePublished: string;
   dateModified?: string;
   author: {
+    '@type': 'Person';
     name: string;
     url: string;
   };
