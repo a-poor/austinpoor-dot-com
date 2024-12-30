@@ -14,7 +14,7 @@ export type BlogPostMetaData = {
 export const BlogPostMeta = ({ meta }: { meta: BlogPostMetaData }) => (
   <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
+    "@type": "Article",
     ...meta,
   }) }} />
 );
