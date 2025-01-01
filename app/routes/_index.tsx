@@ -53,15 +53,15 @@ export default function Page() {
           I'm a full-stack software engineer living in Los Angeles, CA.
         </p>
         <div className="w-fit pb-10 grid grid-cols-4 gap-2 items-center">
-          <Link to="/github">
+          <Link to="https://github.com/a-poor">
             <GithubLogo size={36} />
             <span className="sr-only">Github</span>
           </Link>
-          <Link to="/linkedin">
+          <Link to="https://linkedin.com/in/austinpoor">
             <LinkedinLogo size={36} />
             <span className="sr-only">LinkedIn</span>
           </Link>
-          <Link to="/bluesky">
+          <Link to="https://bsky.app/profile/austinpoor.com">
             <Butterfly size={36} />
             <span className="sr-only">Bluesky</span>
           </Link>

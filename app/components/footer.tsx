@@ -24,16 +24,16 @@ export function Footer() {
         ***
       </div>
       <div className="flex flex-row gap-4 items-center justify-center">
-        <FooterLink href="/github">
+        <FooterLink href="https://github.com/a-poor">
           GitHub
         </FooterLink>
-        <FooterLink href="/linkedin">
+        <FooterLink href="https://linkedin.com/in/austinpoor">
           LinedIn
         </FooterLink>
-        <FooterLink href="/bluesky">
+        <FooterLink href="https://bsky.app/profile/austinpoor.com">
           BlueSky
         </FooterLink>
-        <FooterLink href="/youtube">
+        <FooterLink href="https://www.youtube.com/@a-poor">
           YouTube
         </FooterLink>
       </div>
