@@ -23,20 +23,6 @@ startTransition(() => {
     document,
     <StrictMode>
       <HydratedRouter />
-    </StrictMode>,
-    {
-      onCaughtError: (error, errorInfo) => {
-        console.error('Caught error:', error, errorInfo);
-        Sentry.captureException(error);
-      },
-      onUncaughtError: (error, errorInfo) => {
-        console.error('Uncaught error:', error, errorInfo);
-        Sentry.captureException(error);
-      },
-      onRecoverableError: (error, errorInfo) => {
-        console.error('Recoverable error:', error, errorInfo);
-        Sentry.captureException(error);
-      },
-    },
+    </StrictMode>
   );
 });

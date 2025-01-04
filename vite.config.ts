@@ -9,6 +9,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import yaml from 'js-yaml';
 import Markdoc from '@markdoc/markdoc';
 import readingTime from 'reading-time';
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 
 function importBlogPostPlugin() {
   const virtualModuleId = 'virtual:load-blog-posts';
@@ -65,6 +66,7 @@ function importBlogPostPlugin() {
 
 export default defineConfig(({ isSsrBuild }) => ({
     build: {
+        sourcemap: true,
         rollupOptions: isSsrBuild
             ? {
                 input: "./workers/app.ts",
@@ -104,5 +106,15 @@ export default defineConfig(({ isSsrBuild }) => ({
         importBlogPostPlugin(),
         reactRouter(),
         tsconfigPaths(),
+
+        // Keep this at the end
+        sentryVitePlugin({
+          authToken: process.env.SENTRY_AUTH_TOKEN,
+          org: "austinpoorcom",
+          project: "austinpoor-dot-com",
+          sourcemaps: {
+            filesToDeleteAfterUpload: "**/*.js.map",
+          },
+        }),
     ],
 }));
