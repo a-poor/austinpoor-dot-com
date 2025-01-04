@@ -7,3 +7,7 @@ routes = [
     { pattern = "austinpoor.com", custom_domain = true },
     { pattern = "www.austinpoor.com", custom_domain = true },
 ]
+
+[vars]
+VITE_SENTRY_DSN = "https://8f2fd7a5991b5503f9c2e8e600c56a6f@o1081370.ingest.us.sentry.io/4508586546626560"
+

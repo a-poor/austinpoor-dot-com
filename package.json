@@ -17,6 +17,7 @@
 		"@react-router/fs-routes": "^7.0.2",
 		"@react-router/node": "^7.0.2",
 		"@react-router/serve": "^7.0.2",
+		"@sentry/react": "^8.47.0",
 		"clsx": "^2.1.1",
 		"framer-motion": "^11.15.0",
 		"fuse.js": "^7.0.0",
