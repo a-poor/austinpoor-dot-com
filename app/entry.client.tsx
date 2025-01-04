@@ -8,6 +8,7 @@ Sentry.init({
   integrations: [
     Sentry.browserTracingIntegration(),
     Sentry.replayIntegration(),
+    Sentry.browserProfilingIntegration(),
   ],
   tracesSampleRate: 1.0,
   tracePropagationTargets: [
@@ -16,6 +17,7 @@ Sentry.init({
   ],
   replaysSessionSampleRate: 0.1,
   replaysOnErrorSampleRate: 1.0,
+  profilesSampleRate: 1.0,
 });
 
 startTransition(() => {

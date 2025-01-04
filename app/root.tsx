@@ -24,6 +24,13 @@ export const links: Route.LinksFunction = () => [
   { rel: "sitemap", type: "application/xml", title: "Sitemap", href: "sitemap.xml" },
 ];
 
+export function headers(_: Route.HeadersArgs) {
+  return {
+    'Document-Policy': 'js-profiling',
+  };
+}
+
+
 export async function loader({ request }: Route.LoaderArgs) {
   const cookieData = await themeCookie.parse(request.headers.get("Cookie") ?? "");
   let theme: Theme = "system";
