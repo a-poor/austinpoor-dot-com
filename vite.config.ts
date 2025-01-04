@@ -11,6 +11,13 @@ import Markdoc from '@markdoc/markdoc';
 import readingTime from 'reading-time';
 import { sentryVitePlugin } from "@sentry/vite-plugin";
 
+
+const SENTRY_AUTH_TOKEN = process.env.SENTRY_AUTH_TOKEN;
+if (!SENTRY_AUTH_TOKEN) {
+  console.error('SENTRY_AUTH_TOKEN environment variable is required');
+}
+
+
 function importBlogPostPlugin() {
   const virtualModuleId = 'virtual:load-blog-posts';
   const resolvedVirtualModuleId = '\0' + virtualModuleId;
@@ -109,7 +116,7 @@ export default defineConfig(({ isSsrBuild }) => ({
 
         // Keep this at the end
         sentryVitePlugin({
-          authToken: process.env.SENTRY_AUTH_TOKEN,
+          authToken: SENTRY_AUTH_TOKEN,
           org: "austinpoorcom",
           project: "austinpoor-dot-com",
           sourcemaps: {
