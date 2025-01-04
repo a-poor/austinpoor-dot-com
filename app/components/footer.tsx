@@ -1,6 +1,8 @@
+import { useMemo } from 'react';
 import { Link } from 'react-router';
 
 export function Footer() {
+  const year = useMemo(() => new Date().getFullYear(), []);
   return (
     <footer className="pt-8 pb-14 bg-zinc-100 dark:bg-zinc-950 flex flex-col gap-4 text-sm text-gray-600 dark:text-gray-400">
       <div className="flex flex-row gap-4 items-center justify-center">
@@ -41,7 +43,7 @@ export function Footer() {
         ***
       </div>
       <div className="text-center">
-        &copy; 2020-{new Date().getFullYear()} Austin Poor
+        &copy; 2020-{year} Austin Poor
       </div>
     </footer>
   );
