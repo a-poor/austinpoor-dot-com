@@ -4,7 +4,7 @@ import { HydratedRouter } from "react-router/dom";
 import * as Sentry from '@sentry/react';
 
 Sentry.init({
-  dsn: import.meta.env.VITE_SENTRY_DSN,
+  dsn: "https://8f2fd7a5991b5503f9c2e8e600c56a6f@o1081370.ingest.us.sentry.io/4508586546626560",
   integrations: [
     Sentry.browserTracingIntegration(),
     Sentry.replayIntegration(),
