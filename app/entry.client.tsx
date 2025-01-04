@@ -1,12 +1,24 @@
-import { startTransition, StrictMode } from "react";
+import { useEffect, startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { HydratedRouter } from "react-router/dom";
+import {
+  createRoutesFromChildren,
+  useLocation,
+  useNavigationType,
+  matchRoutes,
+} from "react-router";
 import * as Sentry from '@sentry/react';
 
 Sentry.init({
   dsn: "https://f03fd02f0d0c93a039ebbb5e4a70c7c5@o1081370.ingest.us.sentry.io/4508586567794688",
   integrations: [
-    Sentry.browserTracingIntegration(),
+    Sentry.reactRouterV7BrowserTracingIntegration({
+      useEffect,
+      useLocation,
+      useNavigationType,
+      matchRoutes,
+      createRoutesFromChildren,
+    }),
     Sentry.replayIntegration(),
     Sentry.browserProfilingIntegration(),
   ],
