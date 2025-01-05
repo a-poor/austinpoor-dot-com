@@ -173,7 +173,7 @@ function BlogPostPreviewCard({slug, title, description, readTime, postDate, img}
         <img
           src={img.src}
           alt={img.alt}
-          className="object-cover aspect-[2/1] object-top brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-300"
+          className="object-cover w-[350px] h-[175px] aspect-[2/1] object-top brightness-90 group-hover:scale-105 group-hover:brightness-100 transition-all duration-300"
           height={350}
           />
       </div>
