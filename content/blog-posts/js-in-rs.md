@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Running JavaScript in Rust with Deno"
 subtitle: "Exploring Deno's JavaScript Runtime in a Proof-of-Concept Rust Application for Filtering Text with JS Expressions"
 description: "Explore how the Deno runtime can enable JavaScript code execution in a Rust application via a proof-of-concept project called \"js-in-rs\". Discover the flexibility and versatility of using JavaScript expressions as filters in a CLI, written in Rust, as a powerful alternative to regular expressions. Watch out grep!"

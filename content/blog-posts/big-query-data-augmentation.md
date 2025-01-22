@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Painless Data Augmentation with BigQuery"
 subtitle: "Quickly Augmenting Your Datasets with BigQuery Public Data"
 description: "Google Cloud's BigQuery is a great tool for data scientists to easily augment their datasets with external data – using BigQuery's public datasets."

@@ -2,7 +2,7 @@ import type { Route } from "./+types/_index";
 import { Link } from "react-router";
 import { GithubLogo, LinkedinLogo, Butterfly, YoutubeLogo } from '@phosphor-icons/react';
 import { useRouteLoaderData } from "react-router";
-import blogPosts from "virtual:load-blog-posts";
+import blogPosts from "virtual:load-blog-post-metadata";
 import { useMemo } from "react";
 
 type BlogPost = {
@@ -29,7 +29,7 @@ const orderBlogPost = (a: BlogPost, b: BlogPost) => {
   return new Date(b.front.publishDate).getTime() - new Date(a.front.publishDate).getTime();
 };
 
-const recentBlogPosts = Object.values(blogPosts as Record<string, BlogPost>).sort(orderBlogPost).slice(0, 3);
+const recentBlogPosts = blogPosts.sort(orderBlogPost).slice(0, 3);
 
 export function meta(_: Route.MetaArgs) {
   return [

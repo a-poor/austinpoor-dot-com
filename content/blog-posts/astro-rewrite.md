@@ -1,10 +1,9 @@
 ---
-isDraft: false
 title: Re-Re-Rewriting My Site in Astro
 subtitle: Using the Astro Framework to Make a Simpler, Faster Site
 description: Recapping the process of rewriting my personal site and blog using the new Astro framework.
 image:
-  # src: /images/apdc-site-screenshot.webp
+  src: /images/apdc-site-screenshot.webp
   alt: A screenshot of the home page of my personal site, rewritten in Astro.
   caption: A screenshot of the home page of my personal site, rewritten in Astro.
 publishDate: 2023-03-05

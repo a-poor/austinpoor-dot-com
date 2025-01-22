@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Data Scientists, Start Using Profilers"
 subtitle: "Find the parts of your algorithm that are ACTUALLY slowing you down"
 description: "A profiler can show you exactly which parts are taking the most time, allowing you to see which sections to spend time optimizing to speed up your code."

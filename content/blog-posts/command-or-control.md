@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Command or Control"
 subtitle: "Knowing What Modifier Key to Put in Your Search Bar"
 description: "Should your hotkeys use \"Cmd\" or \"Ctrl\"? How can you tell if your user is on a Mac or not? This blog post walks through multiple approaches to OS detection in JavaScript."

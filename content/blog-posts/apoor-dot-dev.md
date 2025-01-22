@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: Making apoor.dev
 subtitle: Building a URL Shortener with Rust, Tokio, and Axum.
 description: I recently built a URL shortener using Rust, Tokio, and Axum, and in this blog post, I'm sharing my experience. From selecting the right tech stack to load testing the application, I cover everything that went into building this service.

@@ -1,4 +1,4 @@
-import blogPosts from "virtual:load-blog-posts";
+import blogPosts from "virtual:load-blog-post-metadata";
 
 const BASE_URL = "https://austinpoor.com";
 
@@ -13,9 +13,8 @@ const ROUTES = [
 
 export function loader() {
   const items = ROUTES.map(r => "  <url><loc>" + BASE_URL + r + "</loc></url>");
-  const blogItems = Object
-    .keys(blogPosts)
-    .map((slug) => "  <url><loc>" + BASE_URL + "/blog/" + slug + "/</loc></url>");
+  const blogItems = blogPosts
+    .map(post => "  <url><loc>" + BASE_URL + "/blog/" + post.slug + "/</loc></url>");
   const data = `
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

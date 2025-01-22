@@ -6,22 +6,19 @@ import {
   ItemDescription,
   ItemTags,
 } from "~/components/item-list";
-import blogPosts from 'virtual:load-blog-posts';
-
+import blogPosts from 'virtual:load-blog-post-metadata';
 
 type Post = {
   slug: string;
-  front: {
-    publishDate: string;
-    title: string;
-    description: string;
-    tags: string[];
-  };
-  html: string;
+  title: string;
+  description: string;
+  tags: string[];
   readTime: string;
+  publishDate: string;
+  updatedDate?: string;
 };
-const comparePosts = (a: Post, b: Post) => new Date(b.front.publishDate as string).getTime() - new Date(a.front.publishDate as string).getTime();
-const posts = Object.values(blogPosts as Record<string, Post>).sort(comparePosts);
+const comparePosts = (a: Post, b: Post) => new Date(b.publishDate as string).getTime() - new Date(a.publishDate as string).getTime();
+const posts = (blogPosts as Array<Post>).sort(comparePosts);
 
 export function meta() {
   return [
@@ -47,14 +44,14 @@ export default function Page() {
       <ItemList>
         {posts.map((p) => (
           <LinkItem to={`/blog/${p.slug}`} key={p.slug}>
-            <ItemDate date={p.front.publishDate} />
+            <ItemDate date={p.publishDate} />
             <ItemHeader>
-              {p.front.title}
+              {p.title}
             </ItemHeader>
             <ItemDescription>
-              {p.front.description}
+              {p.description}
             </ItemDescription>
-            <ItemTags tags={p.front.tags} />
+            <ItemTags tags={p.tags} />
           </LinkItem>
         ))}
       </ItemList>

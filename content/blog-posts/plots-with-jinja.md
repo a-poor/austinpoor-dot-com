@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Take Full Control of Your Python Plots with Jinja"
 subtitle: "Create fully custom plots in Python with SVG and Jinja"
 description: "Next time you want to make a fully customized plot in Python ditch matplotlib and try Jinja. Here's a short tutorial to help you get started."

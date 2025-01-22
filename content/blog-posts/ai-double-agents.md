@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "AI (Double) Agents"
 subtitle: "What to do when your LLM can't be trusted"
 description: "Ensure your AI agents are secure and reliable by implementing sensible restrictions, permission boundaries, and thoughtful UX to mitigate risks associated with LLM errors and vulnerabilities."

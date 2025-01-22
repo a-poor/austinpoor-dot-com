@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Quickly Load CSVs into PostgreSQL Using Python and Pandas"
 subtitle: "Use Pandas to quickly create and populate a Postgres database"
 description: "Learn a fast way to use Python and Pandas to import CSV data into a Postgres database. Let Pandas infer data types and create the SQL schema for you."

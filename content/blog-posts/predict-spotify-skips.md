@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Predicting Spotify Track Skips"
 subtitle: "Working on the Spotify Sequential Skip Prediction Challenge"
 description: "Metis Data Science Bootcamp project using machine learning to predict Spotify user track skips for the \"Spotify Sequential Skip Prediction Challenge\"."

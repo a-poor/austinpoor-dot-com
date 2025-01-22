@@ -2,7 +2,8 @@
     "extends": "./tsconfig.json",
     "include": [
         "tailwind.config.ts",
-        "vite.config.ts"
+        "vite.config.ts",
+        "vite-md-content-plugin.ts"
     ],
     "compilerOptions": {
         "composite": true,

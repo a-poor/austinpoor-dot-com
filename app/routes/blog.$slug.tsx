@@ -2,7 +2,7 @@ import { useMemo, useEffect } from "react";
 import moment from "moment";
 import { Link, redirect } from "react-router";
 import type { Route } from "./+types/blog.$slug";
-import blogPosts from 'virtual:load-blog-posts';
+import blogPosts from 'virtual:load-blog-post-content';
 import { Badge } from "~/components/catalyst/badge";
 import { BlogPostMeta } from "~/components/structured-meta";
 import {

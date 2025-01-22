@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Algorithmic Color Palettes"
 subtitle: "Using Machine Learning to Generate Color Palettes from Images"
 description: "Using Unsupervised Machine Learning algorithms to generate color palettes from film stills."

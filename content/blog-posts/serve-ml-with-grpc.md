@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "Serving ML Models with gRPC"
 subtitle: "Skip REST and give gRPC a try"
 description: "gRPC APIs are fast, efficient, and type-safe. Next time you need to create an ML prediction service, ditch REST and give gRPC a shot!"

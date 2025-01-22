@@ -1,5 +1,4 @@
 ---
-isDraft: false
 title: "On Zero Trust Programming"
 subtitle: "Applying the Concept of Zero Trust Security to the Code We Write"
 description: "Explore the concept of Zero Trust Programming (ZTP), which applies the Zero Trust security model to code, allowing granular permissions and enhancing open source software security. Discover ZTP's potential benefits in reducing vulnerabilities and improving audit processes, while considering the challenges and tradeoffs. Learn how ZTP could be implemented in existing or new languages and ecosystems."
