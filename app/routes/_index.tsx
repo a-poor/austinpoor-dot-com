@@ -65,10 +65,10 @@ export default function Page() {
             <Butterfly size={36} />
             <span className="sr-only">Bluesky</span>
           </Link>
-          {/* <Link to="/youtube">
+          <Link to="https://www.youtube.com/@a-poor">
             <YoutubeLogo size={36} />
             <span className="sr-only">YouTube</span>
-          </Link> */}
+          </Link>
         </div>
         <section className="py-8 text-gray-950 dark:text-gray-50 text-base space-y-2">
           <div className="pb-2">
